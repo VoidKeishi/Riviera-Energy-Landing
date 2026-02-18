@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ============================================
+   Riviera Energy — CSS Custom Properties
+   Source: STYLE_GUIDE.md
+   ============================================ */
+
+:root {
+  /* --- Primary Brand (from logos & deck) --- */
+  --color-indigo: #080145;
+  --color-navy: #11008E;
+  --color-navy-mid: #0F2B5B;
+
+  /* --- Energy Gradient (from "ENERGY" text) --- */
+  --color-energy-start: #0958B3;
+  --color-energy-mid: #2585C4;
+  --color-energy-end: #59DAE3;
+
+  /* --- Accent --- */
+  --color-cyan: #0098B5;
+  --color-amber: #E8A317;
+
+  /* --- Neutrals --- */
+  --color-white: #FFFFFF;
+  --color-off-white: #F7F8FC;
+  --color-grey-100: #F3F4F6;
+  --color-grey-300: #D1D5DB;
+  --color-grey-500: #6B7280;
+  --color-grey-900: #111827;
+
+  /* --- Semantic --- */
+  --color-text-primary: #080145;
+  --color-text-body: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-on-dark-muted: #CBD5E1;
+
+  /* --- Motion (from STYLE_GUIDE.md) --- */
+  --ease-flow: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-wave: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-lift: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-smooth: 700ms;
+  --duration-slow: 1000ms;
+  --duration-wave: 20s;
+}
+
+/* ============================================
+   Tailwind v4 Theme Extension
+   ============================================ */
+
+@theme inline {
+  /* --- Font families (from next/font CSS variables) --- */
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-jetbrains);
+
+  /* --- Brand colors mapped to Tailwind --- */
+  --color-indigo: var(--color-indigo);
+  --color-navy: var(--color-navy);
+  --color-navy-mid: var(--color-navy-mid);
+
+  --color-energy-start: var(--color-energy-start);
+  --color-energy-mid: var(--color-energy-mid);
+  --color-energy-end: var(--color-energy-end);
+
+  --color-cyan: var(--color-cyan);
+  --color-amber: var(--color-amber);
+
+  --color-off-white: var(--color-off-white);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+@layer base {
+  body {
+    font-family: var(--font-jakarta), system-ui, sans-serif;
+    color: var(--color-text-body);
+    background: var(--color-white);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.energy-gradient {
+  background: linear-gradient(135deg, #0958B3 0%, #2585C4 40%, #40B2D4 70%, #59DAE3 100%);
+}
+
+.energy-gradient-text {
+  background: linear-gradient(90deg, #0958B3, #2585C4, #59DAE3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 40s linear infinite;
+}
+
+.animate-scroll-x:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
