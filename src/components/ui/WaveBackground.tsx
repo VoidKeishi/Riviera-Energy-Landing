@@ -49,7 +49,7 @@ export function WaveBackground({ variant = 'dark', className = '' }: WaveBackgro
             opacity={baseOpacity + (i / wavePaths.length) * opacityRange}
             style={{
               strokeDasharray: '12 8',
-              animation: `wave-drift-${i} ${20 + i * 2}s var(--ease-wave) infinite alternate`,
+              animation: `wave-drift-${i} ${8 + i * 1.5}s var(--ease-wave) infinite alternate`,
             }}
           />
         ))}
@@ -60,11 +60,11 @@ export function WaveBackground({ variant = 'dark', className = '' }: WaveBackgro
           @keyframes wave-drift-${i} {
             0% {
               stroke-dashoffset: 0;
-              transform: translateX(${-10 + i * 3}px) translateY(${i % 2 === 0 ? -4 : 4}px);
+              transform: translateX(${-15 + i * 3}px) translateY(${i % 2 === 0 ? -6 : 6}px);
             }
             100% {
-              stroke-dashoffset: ${-60 - i * 10};
-              transform: translateX(${10 - i * 3}px) translateY(${i % 2 === 0 ? 4 : -4}px);
+              stroke-dashoffset: ${-80 - i * 12};
+              transform: translateX(${15 - i * 3}px) translateY(${i % 2 === 0 ? 6 : -6}px);
             }
           }
         `).join('')}

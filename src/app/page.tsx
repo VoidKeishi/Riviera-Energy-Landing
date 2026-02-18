@@ -202,12 +202,10 @@ export default function Home() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {servicePillars.map((pillar, i) => (
-            <ScrollReveal key={pillar.href} delay={i * 100}>
+            <ScrollReveal key={pillar.href} delay={i * 100} className="h-full">
               <Link
                 href={pillar.href}
-                className={`group block rounded-xl bg-white border border-[var(--color-grey-100)] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(8,1,69,0.12)] ${
-                  i === 1 ? 'md:mt-8' : i === 2 ? 'md:mt-16' : ''
-                }`}
+                className="group h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(8,1,69,0.12)]"
               >
                 <div className={`h-1 rounded-t-xl bg-gradient-to-r ${pillar.gradient}`} />
 
@@ -215,11 +213,11 @@ export default function Home() {
                   <WaveBackground variant="dark" className="opacity-40" />
                 </div>
 
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-grow">
                   <h3 className="font-sans text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
                     {pillar.title}
                   </h3>
-                  <p className="mt-3 text-base font-sans leading-relaxed text-[var(--color-text-body)]">
+                  <p className="mt-3 flex-grow text-base font-sans leading-relaxed text-[var(--color-text-body)]">
                     {pillar.description}
                   </p>
                   <p className="mt-4 text-sm font-sans italic text-[var(--color-text-muted)]">

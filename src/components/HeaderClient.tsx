@@ -78,10 +78,10 @@ export function HeaderClient() {
       </a>
 
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-[var(--duration-base)] ${
+        className={`fixed top-0 z-50 w-full bg-white transition-all duration-[var(--duration-base)] ${
           isScrolled
-            ? 'bg-white/95 shadow-sm border-b border-[var(--color-grey-100)] backdrop-blur-md'
-            : 'bg-white/80 border-b border-transparent backdrop-blur-md'
+            ? 'shadow-sm border-b border-[var(--color-grey-100)]'
+            : 'border-b border-transparent'
         }`}
       >
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">

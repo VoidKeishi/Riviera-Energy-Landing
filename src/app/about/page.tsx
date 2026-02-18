@@ -142,11 +142,9 @@ export default function AboutPage() {
                 </blockquote>
               </ScrollReveal>
               <ScrollReveal delay={500}>
-                <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--color-amber)]/10 border border-[var(--color-amber)]/20 px-4 py-2">
-                  <span className="text-sm font-sans font-semibold text-[var(--color-amber)]">
-                    Established since 2014
-                  </span>
-                </div>
+                <p className="mt-6 text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
+                  Established in Singapore since 2014
+                </p>
               </ScrollReveal>
             </div>
 

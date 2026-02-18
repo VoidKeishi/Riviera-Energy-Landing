@@ -275,7 +275,7 @@ export default function CommissioningPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {keyBenefits.map((benefit, i) => (
               <ScrollReveal key={i} delay={i * 80} className="h-full">
                 <div className="h-full flex items-start gap-4 rounded-xl bg-white/[0.08] border border-white/[0.15] p-6 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.12]">
@@ -420,7 +420,7 @@ export default function CommissioningPage() {
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="mt-6 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-              OGS provides expert Asset Management and Support services to ensure clients maintain
+              Riviera Energy provides expert Asset Management and Support services to ensure clients maintain
               plant safety, avoid unplanned downtime and comply with increasingly complex regulatory
               requirements.
             </p>
