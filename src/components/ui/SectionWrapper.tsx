@@ -28,7 +28,7 @@ export function SectionWrapper({
   return (
     <section
       id={id}
-      className={`relative py-24 md:py-32 ${bgStyles[background]} ${className}`}
+      className={`relative py-16 sm:py-24 md:py-32 ${bgStyles[background]} ${className}`}
     >
       <div className={`mx-auto px-6 sm:px-8 lg:px-12 ${containerWidth}`}>
         {children}

@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   title: "Commissioning & Operational Readiness",
   description:
     "Pre-Commissioning, Commissioning & Operational Readiness services powered by the ICORA framework.",
+  alternates: {
+    canonical: "/solutions/commissioning",
+  },
+  openGraph: {
+    title: "Commissioning & Operational Readiness | Riviera Energy",
+    description:
+      "Pre-Commissioning, Commissioning & Operational Readiness services powered by the ICORA framework.",
+    url: "/solutions/commissioning",
+  },
 };
 
 const icoraPillars = [
@@ -113,7 +122,7 @@ export default function CommissioningPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
         <DotGrid size="6x6" variant="light" className="absolute top-28 right-8 md:right-20 hidden lg:block" />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -259,7 +268,7 @@ export default function CommissioningPage() {
       </SectionWrapper>
 
       {/* Key Benefits */}
-      <section className="relative py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
         <WaveBackground variant="dark" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
@@ -444,7 +453,7 @@ export default function CommissioningPage() {
       </SectionWrapper>
 
       {/* CTA */}
-      <section className="relative py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
         <WaveBackground variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>

@@ -117,6 +117,21 @@
 }
 
 /* ============================================
+   Mobile Wave Simplification
+   ============================================ */
+
+@media (max-width: 767px) {
+  .wave-svg path:nth-child(n+4) {
+    display: none;
+  }
+
+  .wave-svg path {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 

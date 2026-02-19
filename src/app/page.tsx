@@ -106,9 +106,9 @@ export default function Home() {
         <WaveBackground variant="dark" />
         <DotGrid size="6x6" variant="dark" className="absolute top-24 right-12 md:right-24 hidden md:block" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal delay={300}>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.9] text-white">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.9] text-white">
               Where Partnership
               <br />
               Meets Performance
@@ -116,7 +116,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={450}>
-            <p className="mt-6 text-lg md:text-xl text-[var(--color-text-on-dark-muted)] max-w-2xl mx-auto leading-relaxed font-sans">
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-[var(--color-text-on-dark-muted)] max-w-2xl mx-auto leading-relaxed font-sans">
               Engineering and asset integrity consultancy delivering
               high-confidence project outcomes across the global energy sector.
             </p>
@@ -200,7 +200,7 @@ export default function Home() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {servicePillars.map((pillar, i) => (
             <ScrollReveal key={pillar.href} delay={i * 100} className="h-full">
               <Link
@@ -213,7 +213,7 @@ export default function Home() {
                   <WaveBackground variant="dark" className="opacity-40" />
                 </div>
 
-                <div className="p-8 flex flex-col flex-grow">
+                <div className="p-6 sm:p-8 flex flex-col flex-grow">
                   <h3 className="font-sans text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
                     {pillar.title}
                   </h3>
@@ -237,7 +237,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* What Sets Us Apart */}
-      <section className="relative py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
         <WaveBackground variant="dark" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
@@ -253,10 +253,10 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {differentiators.map((item, i) => (
               <ScrollReveal key={item.title} delay={i * 100} className="h-full">
-                <div className="flex h-full flex-col rounded-xl bg-white/[0.08] border border-white/[0.15] p-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.12]">
+                <div className="flex h-full flex-col rounded-xl bg-white/[0.08] border border-white/[0.15] p-6 sm:p-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.12]">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-white/[0.12] text-[var(--color-energy-end)]">
                     {item.icon}
                   </div>
@@ -271,7 +271,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          <div className="mt-12 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
             <div className="md:border-r md:border-white/10 md:pr-4">
               <StatCounter end={50} suffix="+" label="Years Combined Experience" />
             </div>
@@ -322,7 +322,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* CTA Band */}
-      <section className="relative py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
         <WaveBackground variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>

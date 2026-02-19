@@ -33,7 +33,7 @@ export function WaveBackground({ variant = 'dark', className = '' }: WaveBackgro
       aria-hidden="true"
     >
       <svg
-        className="absolute inset-0 h-full w-full"
+        className="wave-svg absolute inset-0 h-full w-full"
         viewBox="0 0 1440 400"
         preserveAspectRatio="none"
         fill="none"

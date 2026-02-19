@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Riviera Energy is an engineering and asset integrity consultancy delivering high-confidence project outcomes across the full energy asset lifecycle.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | Riviera Energy",
+    description:
+      "Riviera Energy is an engineering and asset integrity consultancy delivering high-confidence project outcomes across the full energy asset lifecycle.",
+    url: "/about",
+  },
 };
 
 const values = [
@@ -103,7 +112,7 @@ export default function AboutPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
         <DotGrid size="6x6" variant="light" className="absolute top-28 right-8 md:right-20 hidden lg:block" />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

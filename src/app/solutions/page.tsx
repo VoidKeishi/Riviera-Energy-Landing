@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   title: "Solutions",
   description:
     "Integrated solutions across the project lifecycle — commissioning, strategic consultancy, and global workforce mobilisation.",
+  alternates: {
+    canonical: "/solutions",
+  },
+  openGraph: {
+    title: "Solutions | Riviera Energy",
+    description:
+      "Integrated solutions across the project lifecycle — commissioning, strategic consultancy, and global workforce mobilisation.",
+    url: "/solutions",
+  },
 };
 
 const servicePillars = [
@@ -61,7 +70,7 @@ export default function SolutionsPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
         <DotGrid
           size="6x6"
           variant="light"
@@ -263,7 +272,7 @@ export default function SolutionsPage() {
       </SectionWrapper>
 
       {/* CTA Band */}
-      <section className="relative py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
         <WaveBackground variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>

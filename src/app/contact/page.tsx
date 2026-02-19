@@ -10,13 +10,22 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Riviera Energy for project enquiries, workforce solutions, or partnership discussions.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Riviera Energy",
+    description:
+      "Get in touch with Riviera Energy for project enquiries, workforce solutions, or partnership discussions.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
         <DotGrid size="6x6" variant="light" className="absolute top-28 right-8 md:right-20 hidden lg:block" />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

@@ -98,7 +98,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+        <div className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-xs text-[var(--color-text-on-dark-muted)]">
             &copy; {new Date().getFullYear()} Riviera Energy Pte Ltd. All
             rights reserved.
