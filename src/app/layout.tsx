@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Merriweather, Manrope, JetBrains_Mono } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 
-const outfit = Outfit({
+const merriweather = Merriweather({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-outfit",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-merriweather",
+  weight: ["400", "700", "900"],
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-jakarta",
+  variable: "--font-manrope",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -28,7 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.riviera-energy.co"),
   title: {
-    default: "Riviera Energy — Where Partnership Meets Performance",
+    default: "Riviera Energy - Where Partnership Meets Performance",
     template: "%s | Riviera Energy",
   },
   description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Riviera Energy — Where Partnership Meets Performance",
+    title: "Riviera Energy - Where Partnership Meets Performance",
     description:
       "Engineering and asset integrity consultancy delivering high-confidence project outcomes across the global energy sector.",
     url: "https://www.riviera-energy.co",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Riviera Energy — Where Partnership Meets Performance",
+    title: "Riviera Energy - Where Partnership Meets Performance",
     description:
       "Engineering and asset integrity consultancy delivering high-confidence project outcomes across the global energy sector.",
     images: ["/og-image.png"],
@@ -84,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${merriweather.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <Header />
         <div id="main-content">
@@ -115,7 +115,7 @@ export default function RootLayout({
                   },
                   "contactPoint": {
                     "@type": "ContactPoint",
-                    "telephone": "+65-9040-4928",
+                    "telephone": "+65-8923-9798",
                     "contactType": "customer service",
                   },
                   "sameAs": [],

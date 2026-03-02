@@ -3,25 +3,20 @@ import Image from "next/image";
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
-  { href: "/solutions", label: "Solutions" },
+  { href: "/#what-we-do", label: "Solutions" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact Us" },
 ] as const;
 
-const solutionLinks = [
-  { href: "/solutions/commissioning", label: "Commissioning & Readiness" },
-  { href: "/solutions/consultancy", label: "Strategic Consultancy" },
-  { href: "/solutions/workforce", label: "Workforce & Mobility" },
-] as const;
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-indigo)] text-white">
+    <footer className="bg-[#032060] text-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block" aria-label="Riviera Energy — Home">
+          <div>
+            <Link href="/" className="inline-block" aria-label="Riviera Energy - Home">
               <Image
                 src="/logo-dark.png"
                 alt="Riviera Energy"
@@ -30,9 +25,8 @@ export function Footer() {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-on-dark-muted)] max-w-xs">
-              Where Partnership Meets Performance. Engineering and asset
-              integrity consultancy since 2014.
+            <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-on-dark-muted)] max-w-sm">
+              Where Partnership Meets Performance. Engineering and asset integrity consultancy delivering high-confidence project outcomes across the global energy sector.
             </p>
           </div>
 
@@ -43,25 +37,6 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions */}
-          <div>
-            <h3 className="text-sm font-sans font-semibold tracking-wide uppercase text-[var(--color-text-on-dark-muted)]">
-              Solutions
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {solutionLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -87,10 +62,18 @@ export function Footer() {
               </p>
               <p>
                 <a
-                  href="tel:+6590404928"
+                  href="tel:+6589239798"
                   className="transition-colors duration-[var(--duration-fast)] hover:text-white"
                 >
-                  +65 9040 4928
+                  (+65) 8923 9798
+                </a>
+              </p>
+              <p>
+                <a
+                  href="mailto:operations@riviera-energy.co"
+                  className="transition-colors duration-[var(--duration-fast)] hover:text-white"
+                >
+                  operations@riviera-energy.co
                 </a>
               </p>
             </address>
@@ -104,7 +87,7 @@ export function Footer() {
             rights reserved.
           </p>
           <p className="text-xs text-[var(--color-text-on-dark-muted)]">
-            Company No. 201438405R &middot; EA Licence No. 16C8003
+            Company No. 201438405R &middot; Employment Agency Licence No. 16C8003
           </p>
         </div>
       </div>

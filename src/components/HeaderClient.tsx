@@ -1,29 +1,19 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const navLinks = [
-  { href: '/about', label: 'About Us', hasDropdown: false },
-  { href: '/solutions', label: 'Solutions', hasDropdown: true },
-  { href: '/projects', label: 'Projects', hasDropdown: false },
-  { href: '/contact', label: 'Contact Us', hasDropdown: false },
+  { href: '/about', label: 'About Us' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/contact', label: 'Contact Us' },
 ] as const;
 
-const solutionLinks = [
-  { href: '/solutions/commissioning', label: 'Commissioning & Operational Readiness' },
-  { href: '/solutions/consultancy', label: 'Strategic Project Consultancy' },
-  { href: '/solutions/workforce', label: 'Global Workforce & Mobility Solutions' },
-] as const;
 
 export function HeaderClient() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const drawerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -48,22 +38,12 @@ export function HeaderClient() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsOpen(false);
-        setIsSolutionsOpen(false);
       }
     };
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsSolutionsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   const closeDrawer = useCallback(() => setIsOpen(false), []);
 
@@ -86,7 +66,7 @@ export function HeaderClient() {
       >
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
           {/* Logo */}
-          <Link href="/" aria-label="Riviera Energy — Home">
+          <Link href="/" aria-label="Riviera Energy - Home">
             <Image
               src="/logo-light.png"
               alt="Riviera Energy"
@@ -99,74 +79,22 @@ export function HeaderClient() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            {navLinks.map((link) =>
-              link.hasDropdown ? (
-                <div key={link.href} className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                    onMouseEnter={() => setIsSolutionsOpen(true)}
-                    className="flex items-center gap-1 text-sm font-sans font-medium text-[var(--color-text-body)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-navy)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)] focus-visible:ring-offset-2 rounded-sm"
-                    aria-expanded={isSolutionsOpen}
-                    aria-controls="solutions-dropdown"
-                  >
-                    {link.label}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      className={`transition-transform duration-[var(--duration-fast)] ${isSolutionsOpen ? 'rotate-180' : ''}`}
-                    >
-                      <path d="M3 5 L6 8 L9 5" />
-                    </svg>
-                  </button>
-
-                  {/* Dropdown */}
-                  <div
-                    id="solutions-dropdown"
-                    onMouseLeave={() => setIsSolutionsOpen(false)}
-                    className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 rounded-xl bg-white border border-[var(--color-grey-100)] shadow-lg transition-all duration-[var(--duration-base)] origin-top ${
-                      isSolutionsOpen
-                        ? 'opacity-100 scale-100 pointer-events-auto'
-                        : 'opacity-0 scale-95 pointer-events-none'
-                    }`}
-                    role="menu"
-                  >
-                    <div className="p-2">
-                      {solutionLinks.map((sl) => (
-                        <Link
-                          key={sl.href}
-                          href={sl.href}
-                          role="menuitem"
-                          onClick={() => setIsSolutionsOpen(false)}
-                          className="block rounded-lg px-4 py-3 text-sm font-sans text-[var(--color-text-body)] transition-colors duration-[var(--duration-fast)] hover:bg-[var(--color-off-white)] hover:text-[var(--color-navy)]"
-                        >
-                          {sl.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-sans font-medium text-[var(--color-text-body)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-navy)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)] focus-visible:ring-offset-2 rounded-sm"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-sans font-medium text-[var(--color-text-body)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-navy)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)] focus-visible:ring-offset-2 rounded-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-sans font-semibold text-white energy-gradient shadow-[0_4px_14px_-3px_rgba(9,88,179,0.4)] transition-all duration-[var(--duration-base)] hover:shadow-[0_6px_20px_-3px_rgba(9,88,179,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)] focus-visible:ring-offset-2"
+              className="inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-sans font-semibold text-white energy-gradient shadow-[0_4px_14px_-3px_rgba(17,107,248,0.4)] transition-all duration-[var(--duration-base)] hover:shadow-[0_6px_20px_-3px_rgba(17,107,248,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-cyan)] focus-visible:ring-offset-2"
             >
               Get in Touch
             </Link>
@@ -205,7 +133,6 @@ export function HeaderClient() {
         {/* Drawer */}
         <div
           id="mobile-drawer"
-          ref={drawerRef}
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
@@ -247,24 +174,6 @@ export function HeaderClient() {
                 </Link>
               </li>
               <li>
-                <span className="block py-3 text-base font-sans font-medium text-white/80">
-                  Solutions
-                </span>
-                <ul className="ml-4 space-y-1 border-l border-white/10 pl-4">
-                  {solutionLinks.map((sl) => (
-                    <li key={sl.href}>
-                      <Link
-                        href={sl.href}
-                        onClick={closeDrawer}
-                        className="block py-2.5 text-sm font-sans text-white/60 hover:text-white transition-colors duration-[var(--duration-fast)]"
-                      >
-                        {sl.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <li>
                 <Link
                   href="/projects"
                   onClick={closeDrawer}
@@ -289,7 +198,7 @@ export function HeaderClient() {
               <Link
                 href="/contact"
                 onClick={closeDrawer}
-                className="flex items-center justify-center w-full rounded-lg px-6 py-3.5 text-sm font-sans font-semibold text-white energy-gradient shadow-[0_4px_14px_-3px_rgba(9,88,179,0.4)]"
+                className="flex items-center justify-center w-full rounded-lg px-6 py-3.5 text-sm font-sans font-semibold text-white energy-gradient shadow-[0_4px_14px_-3px_rgba(17,107,248,0.4)]"
               >
                 Get in Touch
               </Link>

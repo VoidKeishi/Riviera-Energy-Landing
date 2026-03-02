@@ -1,21 +1,21 @@
+import { ProjectExplorer } from '@/components/projects/ProjectExplorer';
 import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { WaveBackground } from "@/components/ui/WaveBackground";
-import { DotGrid } from "@/components/ui/DotGrid";
+import { GradientMesh } from "@/components/ui/GradientMesh";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Riviera Energy project portfolio — delivering high-confidence outcomes across global energy infrastructure.",
+    "Riviera Energy project portfolio: delivering high-confidence outcomes across global energy infrastructure.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
     title: "Projects | Riviera Energy",
     description:
-      "Riviera Energy project portfolio — delivering high-confidence outcomes across global energy infrastructure.",
+      "Riviera Energy project portfolio: delivering high-confidence outcomes across global energy infrastructure.",
     url: "/projects",
   },
 };
@@ -23,64 +23,70 @@ export const metadata: Metadata = {
 const projects = [
   {
     title: "West Texas GTL Assessment",
-    location: "Texas, USA",
+    location: "Texas, Americas",
     sector: "Oil & Gas",
+    coordinates: [31.9, -102.1],
     services: ["Field Condition Assessment", "Preservation Review", "Restart Feasibility"],
     description:
       "Comprehensive assessment of a mothballed gas-to-liquids facility. Our team disproved nitrogen-preservation claims through field-verified inspection and uncovered hidden failures, providing the client with a credible restart risk profile and cost model.",
-    highlight: "Disproved preservation claims — uncovered hidden failures",
+    highlight: "Disproved preservation claims, uncovered hidden failures",
   },
   {
     title: "Middle East Refinery Rehabilitation",
     location: "Middle East",
     sector: "Oil & Gas",
+    coordinates: [25.3, 51.5],
     services: ["Government Advisory", "Modular Replacement Strategy", "Feasibility Study"],
     description:
       "Government-advisory engagement for a major refinery rehabilitation programme. Developed modular replacement strategies and provided independent technical assessment supporting capital allocation decisions for facility modernisation.",
-    highlight: "Government advisory — modular replacement strategy",
+    highlight: "Government advisory, modular replacement strategy",
   },
   {
     title: "Kaombo Norte FPSO",
     location: "Angola",
     sector: "Oil & Gas",
+    coordinates: [-7.5, 12.5],
     services: ["EPCI Project Management", "Offshore Installation", "Commissioning"],
     description:
-      "Upstream offshore EPCI project for TotalEnergies. Contributed to the engineering, procurement, construction, and installation phases of the Kaombo Norte floating production, storage, and offloading vessel — one of the largest deepwater developments in West Africa.",
-    highlight: "TotalEnergies — deepwater FPSO development",
+      "Upstream offshore EPCI project for TotalEnergies. Contributed to the engineering, procurement, construction, and installation phases of the Kaombo Norte floating production, storage, and offloading vessel, one of the largest deepwater developments in West Africa.",
+    highlight: "TotalEnergies, deepwater FPSO development",
   },
   {
     title: "CORAL Sul FLNG",
     location: "Mozambique",
     sector: "Oil & Gas",
+    coordinates: [-14.0, 40.5],
     services: ["EPCI Management", "Floating LNG", "Commissioning Support"],
     description:
-      "Engagement on the CORAL Sul floating LNG facility for TotalEnergies — the first deepwater FLNG development in Africa. Supported execution-phase project management and commissioning readiness activities across an international, multi-contractor delivery model.",
+      "Engagement on the CORAL Sul floating LNG facility for TotalEnergies, the first deepwater FLNG development in Africa. Supported execution-phase project management and commissioning readiness activities across an international, multi-contractor delivery model.",
     highlight: "First deepwater FLNG in Africa",
   },
   {
     title: "Yulin Offshore Wind Farm",
     location: "Asia",
     sector: "Renewables",
+    coordinates: [21.4, 109.5],
     services: ["Offshore Wind Development", "Project Management", "Installation Support"],
     description:
       "Offshore wind energy development contributing to the growing renewables portfolio. Delivered project management and installation support for the Yulin wind farm, demonstrating Riviera Energy's capability beyond traditional oil and gas sectors.",
-    highlight: "Renewables sector — offshore wind",
+    highlight: "Renewables sector, offshore wind",
   },
   {
     title: "Australasia Refinery Assessments",
     location: "Australia",
     sector: "Oil & Gas",
+    coordinates: [-33.8, 151.2],
     services: ["Full-Facility Assessment", "Asset Integrity", "Restart Readiness"],
     description:
       "Multiple full-facility assessments for refineries ranging from 80–300 kbpd capacity across Australasia. Partnered with Tier 1 operators including BP, Shell, and Caltex to deliver verified asset condition reports, restart risk profiles, and credible cost/schedule ranges.",
-    highlight: "BP, Shell, Caltex — 80–300 kbpd facilities",
+    highlight: "BP, Shell, Caltex, 80–300 kbpd facilities",
   },
 ] as const;
 
 const sectors = [
   {
     title: "Oil & Gas",
-    description: "Upstream, midstream, and downstream operations — from deepwater FPSO to refinery restart",
+    description: "Upstream, midstream, and downstream operations, from deepwater FPSO to refinery restart",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
@@ -120,7 +126,6 @@ const sectors = [
 const stats = [
   { value: "200+", label: "Equipment Packages Inspected" },
   { value: "300", label: "kbpd Maximum Assessment Capacity" },
-  { value: "6", label: "Global Regions" },
   { value: "50+", label: "Years Combined Leadership" },
 ] as const;
 
@@ -129,7 +134,7 @@ export default function ProjectsPage() {
     <main>
       {/* Hero */}
       <section className="relative pt-28 pb-16 sm:pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden">
-        <DotGrid size="6x6" variant="light" className="absolute top-28 right-8 md:right-20 hidden lg:block" />
+        <div className="absolute top-28 right-8 md:right-20 w-48 h-48 rounded-full bg-[#116BF8] opacity-[0.06] blur-3xl hidden lg:block" aria-hidden="true" />
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -154,7 +159,7 @@ export default function ProjectsPage() {
               <ScrollReveal delay={300}>
                 <p className="mt-4 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
                   Our project experience spans the U.S., Middle East, Africa, Asia, and
-                  Australasia — supporting Tier 1 operators and government clients with
+                  Australasia, supporting Tier 1 operators and government clients with
                   commissioning, consultancy, and workforce solutions.
                 </p>
               </ScrollReveal>
@@ -163,12 +168,12 @@ export default function ProjectsPage() {
             <div className="lg:col-span-5 relative">
               <ScrollReveal delay={300}>
                 <div className="aspect-[3/4] rounded-xl bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] overflow-hidden relative lg:-mr-8">
-                  <WaveBackground variant="dark" className="opacity-50" />
+                  <GradientMesh variant="dark" className="opacity-50" />
                   <div className="absolute inset-0 flex items-end p-8">
                     <div className="text-white">
-                      <div className="font-display text-5xl font-extrabold energy-gradient-text">6+</div>
+                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">200+</div>
                       <div className="mt-1 text-sm font-sans font-medium text-white/70 uppercase tracking-wide">
-                        Global Regions
+                        Equipment Packages Inspected
                       </div>
                     </div>
                   </div>
@@ -194,60 +199,16 @@ export default function ProjectsPage() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, i) => (
-            <ScrollReveal key={project.title} delay={i * 100} className="h-full">
-              <div className="h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(8,1,69,0.1)]">
-                {/* Card header strip */}
-                <div className="bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] px-6 py-5">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-sans font-medium bg-white/15 text-white/90">
-                      {project.sector}
-                    </span>
-                    <span className="text-xs font-sans text-white/60">
-                      {project.location}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 font-sans text-lg font-bold text-white">
-                    {project.title}
-                  </h3>
-                </div>
-
-                {/* Card body */}
-                <div className="flex-grow flex flex-col p-6">
-                  <p className="flex-grow text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-4 pt-4 border-t border-[var(--color-grey-100)]">
-                    <p className="text-xs font-sans font-semibold uppercase tracking-wide text-[var(--color-cyan)] mb-2">
-                      Key Highlight
-                    </p>
-                    <p className="text-sm font-sans font-medium text-[var(--color-text-primary)]">
-                      {project.highlight}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.services.map((service) => (
-                      <span
-                        key={service}
-                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-sans font-medium bg-[var(--color-off-white)] text-[var(--color-text-muted)] border border-[var(--color-grey-100)]"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+        <ScrollReveal delay={200}>
+          <div className="mt-16">
+            <ProjectExplorer projects={projects} />
+          </div>
+        </ScrollReveal>
       </SectionWrapper>
 
       {/* Stats */}
       <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
-        <WaveBackground variant="dark" />
+        <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
@@ -262,11 +223,11 @@ export default function ProjectsPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-16 grid grid-cols-3 gap-8">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 100}>
                 <div className="text-center">
-                  <div className="font-display text-4xl md:text-5xl font-extrabold energy-gradient-text">
+                  <div className="font-display text-4xl md:text-5xl font-extrabold energy-gradient-text-on-dark">
                     {stat.value}
                   </div>
                   <div className="mt-2 text-sm font-sans font-medium text-[var(--color-text-on-dark-muted)] uppercase tracking-wide">
@@ -315,7 +276,7 @@ export default function ProjectsPage() {
 
       {/* CTA */}
       <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
-        <WaveBackground variant="dark" />
+        <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
@@ -325,7 +286,7 @@ export default function ProjectsPage() {
           <ScrollReveal delay={100}>
             <p className="mt-6 text-lg font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
               Whether you need commissioning support, strategic advisory, or workforce
-              solutions — our team brings decades of experience to every engagement.
+              solutions, our team brings decades of experience to every engagement.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200}>
@@ -333,7 +294,7 @@ export default function ProjectsPage() {
               <Button variant="primary" href="/contact">
                 Contact Us
               </Button>
-              <Button variant="ghost" href="/solutions">
+              <Button variant="ghost" href="/#what-we-do">
                 View Our Solutions
               </Button>
             </div>

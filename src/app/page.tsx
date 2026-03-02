@@ -1,37 +1,38 @@
-import Link from 'next/link';
-import { WaveBackground } from '@/components/ui/WaveBackground';
+import { GradientMesh } from '@/components/ui/GradientMesh';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { DotGrid } from '@/components/ui/DotGrid';
 import { Button } from '@/components/ui/Button';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
-import { StatCounter } from '@/components/home/StatCounter';
+import { ServiceTabs } from '@/components/home/ServiceTabs';
 
 const servicePillars = [
   {
-    title: 'Commissioning & Operational Readiness',
+    shortTitle: 'Commissioning',
+    title: 'Pre-Commissioning, Commissioning & Operational Readiness',
     description:
-      'Defined technical capability aligned to specific project scopes. Combining technical capability with compliant, timely deployment across borders — ensuring the right expertise is integrated, accountable, and effective from day one.',
+      'Defined technical capability aligned to specific project scopes. Combining technical capability with compliant, timely deployment across borders, ensuring the right expertise is integrated, accountable, and effective from day one.',
     tagline: 'From completion to confident operation',
-    href: '/solutions/commissioning',
-    gradient: 'from-[#0958B3] to-[#2585C4]',
+    image: '/images/offshore-platform-night.jpg',
+    imageAlt: 'Offshore platform illuminated at night',
   },
   {
+    shortTitle: 'Consultancy',
     title: 'Strategic Project Consultancy',
     description:
       'Strategic project consultancy rooted in proven technical expertise and real-world execution experience. Through a global network of senior specialists operating across time zones, we enable cost-efficient decisions, rapid issue resolution, and continuous project momentum.',
     tagline: 'Experience-led expertise supporting execution around the clock',
-    href: '/solutions/consultancy',
-    gradient: 'from-[#2585C4] to-[#40B2D4]',
+    image: '/images/refinery-complex.jpg',
+    imageAlt: 'Industrial refinery complex in daylight',
   },
   {
+    shortTitle: 'Workforce',
     title: 'Global Workforce & Mobility Solutions',
     description:
       'Integrated delivery and compliant global mobilisation of specialist offshore capability for survey, ROV, inspection, and commissioning activities. Efficient, deployment-ready teams reducing downtime and enabling safe, cost-efficient execution.',
     tagline: 'Delivering global capability, without disruption',
-    href: '/solutions/workforce',
-    gradient: 'from-[#40B2D4] to-[#59DAE3]',
+    image: '/images/vessel-aerial.jpg',
+    imageAlt: 'Aerial view of offshore vessel with helipad',
   },
-] as const;
+];
 
 const differentiators = [
   {
@@ -81,13 +82,19 @@ const differentiators = [
   },
   {
     title: 'Global Reach',
-    description: 'Mobilising expertise worldwide from Singapore across USA, Europe, Middle East, Asia, Africa, and Australia.',
+    description: 'Mobilising expertise worldwide from Singapore across the Americas, Europe, Middle East, Asia, Africa, and Australia.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
   },
+] as const;
+
+const stats = [
+  { end: 50, suffix: '+', label: 'Years Combined Experience' },
+  { end: 100, suffix: 'K+', label: 'Global Talent Database' },
+  { end: 200, suffix: '+', label: 'Equipment Packages Inspected' },
 ] as const;
 
 const partners = [
@@ -102,9 +109,8 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[var(--color-indigo)]">
-        <WaveBackground variant="dark" />
-        <DotGrid size="6x6" variant="dark" className="absolute top-24 right-12 md:right-24 hidden md:block" />
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#031050]">
+        <GradientMesh variant="dark" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal delay={300}>
@@ -124,7 +130,7 @@ export default function Home() {
 
           <ScrollReveal delay={600}>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="primary" href="/solutions">
+              <Button variant="primary" href="/#what-we-do">
                 Our Solutions
               </Button>
               <Button variant="ghost" href="/contact">
@@ -134,157 +140,25 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* Introduction */}
-      <SectionWrapper background="white">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7">
+      {/* Our Solutions */}
+      <section id="what-we-do" className="relative py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
               <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-                Who We Are
+                Our Solutions
               </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-                Integrated Solutions Across the Project Lifecycle
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <p className="mt-6 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-                Riviera Energy is an Energy Industry consultancy providing project consulting services,
-                specialist technical workforce resources, and integrated full-package project solutions
-                to clients across the <strong>oil &amp; gas, renewables, power generation, and marine energy</strong> sectors.
-                With over a decade of experience, we support complex projects by delivering highly qualified
-                engineering professionals and tailored consultancy services across the full project lifecycle.
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={300}>
-              <p className="mt-4 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-muted)]">
-                Our capability spans early-stage concept and design through execution and operational support,
-                enabling clients to mobilise efficiently, manage risk, and achieve consistent project outcomes.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <div className="lg:col-span-5 relative">
-            <ScrollReveal delay={200}>
-              <div className="aspect-[4/3] rounded-xl bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] overflow-hidden relative">
-                <WaveBackground variant="dark" className="opacity-50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-display text-6xl font-extrabold energy-gradient-text">10+</div>
-                    <div className="mt-2 text-sm font-sans font-medium uppercase tracking-wide text-white/70">
-                      Years of Excellence
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-            <DotGrid size="4x4" variant="light" className="absolute -top-4 -right-4 hidden lg:block" />
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Service Pillars */}
-      <SectionWrapper background="off-white">
-        <div className="text-center max-w-3xl mx-auto">
-          <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Our Services
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              What We Do
-            </h2>
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {servicePillars.map((pillar, i) => (
-            <ScrollReveal key={pillar.href} delay={i * 100} className="h-full">
-              <Link
-                href={pillar.href}
-                className="group h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(8,1,69,0.12)]"
-              >
-                <div className={`h-1 rounded-t-xl bg-gradient-to-r ${pillar.gradient}`} />
-
-                <div className="aspect-[16/9] bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] relative overflow-hidden">
-                  <WaveBackground variant="dark" className="opacity-40" />
-                </div>
-
-                <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                  <h3 className="font-sans text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-3 flex-grow text-base font-sans leading-relaxed text-[var(--color-text-body)]">
-                    {pillar.description}
-                  </p>
-                  <p className="mt-4 text-sm font-sans italic text-[var(--color-text-muted)]">
-                    &ldquo;{pillar.tagline}&rdquo;
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-sans font-semibold text-[var(--color-cyan)] group-hover:gap-3 transition-all duration-[var(--duration-base)]">
-                    Learn More
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 8h10M9 4l4 4-4 4" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* What Sets Us Apart */}
-      <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
-        <WaveBackground variant="dark" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <ScrollReveal>
-              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-energy-end)]">
-                Why Riviera Energy
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={100}>
-              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                What Sets Us Apart
+                What We Do
               </h2>
             </ScrollReveal>
           </div>
 
-          <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {differentiators.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 100} className="h-full">
-                <div className="flex h-full flex-col rounded-xl bg-white/[0.08] border border-white/[0.15] p-6 sm:p-8 transition-colors duration-[var(--duration-base)] hover:bg-white/[0.12]">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-white/[0.12] text-[var(--color-energy-end)]">
-                    {item.icon}
-                  </div>
-                  <h3 className="mt-5 font-sans text-lg font-bold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 flex-grow text-sm font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
-                    {item.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <div className="mt-12 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-            <div className="md:border-r md:border-white/10 md:pr-4">
-              <StatCounter end={50} suffix="+" label="Years Combined Experience" />
-            </div>
-            <div className="md:border-r md:border-white/10 md:pr-4">
-              <StatCounter end={100} suffix="K+" label="Global Talent Database" />
-            </div>
-            <div className="md:border-r md:border-white/10 md:pr-4">
-              <StatCounter end={200} suffix="+" label="Equipment Packages Inspected" />
-            </div>
-            <div>
-              <StatCounter end={6} label="Global Regions" />
-            </div>
-          </div>
+          <ScrollReveal delay={200}>
+            <ServiceTabs pillars={servicePillars} differentiators={differentiators} stats={stats} />
+          </ScrollReveal>
         </div>
       </section>
 
@@ -322,8 +196,8 @@ export default function Home() {
       </SectionWrapper>
 
       {/* CTA Band */}
-      <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
-        <WaveBackground variant="dark" />
+      <section className="relative py-14 sm:py-20 md:py-28 bg-[#031050] text-white overflow-hidden">
+        <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
@@ -332,7 +206,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="mt-6 text-lg font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
-              Whether you need commissioning support, strategic advisory, or workforce solutions — our team is ready.
+              Whether you need commissioning support, strategic advisory, or workforce solutions, our team is ready.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200}>
@@ -340,7 +214,7 @@ export default function Home() {
               <Button variant="primary" href="/contact">
                 Contact Us
               </Button>
-              <Button variant="ghost" href="/solutions">
+              <Button variant="ghost" href="/#what-we-do">
                 View Our Solutions
               </Button>
             </div>

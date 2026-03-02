@@ -63,7 +63,7 @@ export function StatCounter({ end, suffix = '', prefix = '', label }: StatCounte
       <div className="font-display text-5xl md:text-6xl font-extrabold leading-none energy-gradient-text">
         {prefix}{displayCount}{suffix}
       </div>
-      <div className="mt-2 text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-text-on-dark-muted)]">
+      <div className="mt-2 text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
         {label}
       </div>
     </div>

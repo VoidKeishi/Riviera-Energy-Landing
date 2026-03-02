@@ -17,8 +17,8 @@ type ButtonProps = ButtonAsLink | ButtonAsButton;
 const variantStyles: Record<ButtonVariant, string> = {
   primary: [
     'energy-gradient text-white font-semibold',
-    'shadow-[0_4px_14px_-3px_rgba(9,88,179,0.4)]',
-    'hover:shadow-[0_6px_20px_-3px_rgba(9,88,179,0.5)]',
+    'shadow-[0_4px_14px_-3px_rgba(17,107,248,0.4)]',
+    'hover:shadow-[0_6px_20px_-3px_rgba(17,107,248,0.5)]',
     'active:scale-[0.98]',
   ].join(' '),
   secondary: [
