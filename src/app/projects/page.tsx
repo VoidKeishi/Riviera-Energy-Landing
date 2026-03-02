@@ -200,7 +200,7 @@ export default function ProjectsPage() {
         </div>
 
         <ScrollReveal delay={200}>
-          <div className="mt-16">
+          <div className="mt-8">
             <ProjectExplorer projects={projects} />
           </div>
         </ScrollReveal>

@@ -48,7 +48,7 @@ export function ProjectExplorer({ projects }: ProjectExplorerProps) {
     <div className="w-full flex flex-col gap-6">
       {/* Map Panel - Full width, wider aspect ratio */}
       <div
-        className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[var(--color-grey-100)] shadow-sm"
+        className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[var(--color-grey-100)] shadow-sm pb-8"
         role="application"
         aria-label="Interactive map of project locations"
       >
