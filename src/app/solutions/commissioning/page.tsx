@@ -36,7 +36,7 @@ export default function CommissioningPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white max-w-5xl mx-auto">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white max-w-5xl mx-auto">
               Commissioning &amp; Operational Readiness
             </h1>
           </ScrollReveal>

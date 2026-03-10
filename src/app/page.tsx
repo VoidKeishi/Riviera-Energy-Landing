@@ -74,10 +74,21 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-16 sm:pt-40 sm:pb-20 md:pt-48 md:pb-24">
         <GradientMesh variant="dark" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Offshore energy platform at sea"
+            fill
+            priority
+            className="object-cover opacity-40"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#031050]/80 via-[#031050]/60 to-[#031050]" />
+        </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal delay={300}>
-            <h1 className="font-hero text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.9] text-white">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
               Where Partnership
               <br />
               Meets Performance
