@@ -8,13 +8,14 @@ interface StatCounterProps {
   suffix?: string;
   prefix?: string;
   label: string;
+  dark?: boolean;
 }
 
 function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export function StatCounter({ end, suffix = '', prefix = '', label }: StatCounterProps) {
+export function StatCounter({ end, suffix = '', prefix = '', label, dark = false }: StatCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [animatedCount, setAnimatedCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -60,10 +61,10 @@ export function StatCounter({ end, suffix = '', prefix = '', label }: StatCounte
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-display text-5xl md:text-6xl font-extrabold leading-none energy-gradient-text">
+      <div className={`font-display text-5xl md:text-6xl font-extrabold leading-none ${dark ? 'energy-gradient-text-on-dark' : 'energy-gradient-text'}`}>
         {prefix}{displayCount}{suffix}
       </div>
-      <div className="mt-2 text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
+      <div className={`mt-2 text-sm font-sans font-medium uppercase tracking-wide ${dark ? 'text-[var(--color-text-on-dark-muted)]' : 'text-[var(--color-text-muted)]'}`}>
         {label}
       </div>
     </div>

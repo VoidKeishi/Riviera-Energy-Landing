@@ -26,18 +26,21 @@ const team = [
     role: "Managing Director",
     bio: "Jason brings more than 30 years of experience across design, system analysis, commissioning, and construction, supported by extensive project and line management experience. He has worked on major international projects both on site and in senior corporate roles, collaborating with Tier 1 operators such as Shell, Exxon, and Woodside, and provides strong leadership in change management, people development, and high-performing team delivery.",
     initials: "JA",
+    image: "/images/team/jason-antunovich.jpg",
   },
   {
     name: "Julianna Iris Tan",
     role: "Managing Partner",
     bio: "Julianna brings more than 20 years of experience in the energy industry, specialising in upstream offshore installation and EPCI project management. She has worked on major international projects across Oil & Gas and Renewables, collaborating with leading operators and contractors such as TotalEnergies, TechnipFMC, and Saipem.",
     initials: "JT",
+    image: "/images/team/julianna-iris-tan.jpg",
   },
   {
     name: "Aisyah Adam",
     role: "Operations & People Lead",
     bio: "Aisyah brings an extensive background in logistics and education, with a strong focus on the welfare and development of our people. As Operations & People Lead, she manages team mobilisation and rotations, placing safety, health, and individual wellbeing at the centre of operations.",
     initials: "AA",
+    image: "/images/team/aisyah-adam.jpg",
   },
 ] as const;
 
@@ -119,53 +122,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <SectionWrapper background="off-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              What Drives Us
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              Mission &amp; Vision
-            </h2>
-          </ScrollReveal>
-
-          <div className="mt-12 space-y-12">
-            {/* Mission */}
-            <ScrollReveal delay={200}>
-              <div className="relative">
-                <h3 className="text-xs font-sans font-semibold uppercase tracking-[0.15em] text-[var(--color-cyan)] mb-4">
-                  Our Mission
-                </h3>
-                <p className="text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-                  To redefine project delivery and facility start-up through governed, data-driven innovation that accelerates execution and unlocks commercial value.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Separator */}
-            <ScrollReveal delay={250}>
-              <div className="w-12 h-0.5 bg-[var(--color-cyan)]/20 mx-auto rounded-full" />
-            </ScrollReveal>
-
-            {/* Vision */}
-            <ScrollReveal delay={300}>
-              <div className="relative">
-                <h3 className="text-xs font-sans font-semibold uppercase tracking-[0.15em] text-[var(--color-cyan)] mb-4">
-                  Our Vision
-                </h3>
-                <p className="text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-                  To set the new standard for how complex projects are delivered — faster, smarter, and with improved outcome certainty.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </SectionWrapper>
-
       {/* Leadership */}
       <SectionWrapper background="white">
         <div className="text-center max-w-3xl mx-auto">
@@ -185,10 +141,14 @@ export default function AboutPage() {
           {team.map((member, i) => (
             <ScrollReveal key={member.name} delay={i * 100} className="h-full">
               <div className="h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(8,1,69,0.1)]">
-                <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] relative flex items-center justify-center">
-                  <span className="font-display text-5xl font-bold text-white/20">
-                    {member.initials}
-                  </span>
+                <div className="aspect-[3/4] relative overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={`Portrait of ${member.name}`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
                 <div className="flex-grow p-8">
                   <h3 className="font-sans text-xl font-bold text-[var(--color-text-primary)]">

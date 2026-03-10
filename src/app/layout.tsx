@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Merriweather, Manrope, JetBrains_Mono } from "next/font/google";
+import { Merriweather, Manrope, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
@@ -23,6 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
   variable: "--font-jetbrains",
   weight: ["400", "500"],
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+  weight: ["700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -84,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${merriweather.variable} ${manrope.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${merriweather.variable} ${manrope.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} antialiased`}
       >
         <Header />
         <div id="main-content">

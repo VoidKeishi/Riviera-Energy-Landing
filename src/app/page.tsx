@@ -2,33 +2,26 @@ import { GradientMesh } from '@/components/ui/GradientMesh';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
-import { ServiceTabs } from '@/components/home/ServiceTabs';
+import { StatCounter } from '@/components/home/StatCounter';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const servicePillars = [
+const solutions = [
   {
-    shortTitle: 'Commissioning',
-    title: 'Pre-Commissioning, Commissioning & Operational Readiness',
-    description:
-      'Defined technical capability aligned to specific project scopes. Combining technical capability with compliant, timely deployment across borders, ensuring the right expertise is integrated, accountable, and effective from day one.',
-    tagline: 'From completion to confident operation',
+    title: 'Commissioning & Operational Readiness',
+    href: '/solutions/commissioning',
     image: '/images/offshore-platform-night.jpg',
     imageAlt: 'Offshore platform illuminated at night',
   },
   {
-    shortTitle: 'Consultancy',
     title: 'Strategic Project Consultancy',
-    description:
-      'Strategic project consultancy rooted in proven technical expertise and real-world execution experience. Through a global network of senior specialists operating across time zones, we enable cost-efficient decisions, rapid issue resolution, and continuous project momentum.',
-    tagline: 'Experience-led expertise supporting execution around the clock',
+    href: '/solutions/consultancy',
     image: '/images/refinery-complex.jpg',
     imageAlt: 'Industrial refinery complex in daylight',
   },
   {
-    shortTitle: 'Workforce',
-    title: 'Global Workforce & Mobility Solutions',
-    description:
-      'Integrated delivery and compliant global mobilisation of specialist offshore capability for survey, ROV, inspection, and commissioning activities. Efficient, deployment-ready teams reducing downtime and enabling safe, cost-efficient execution.',
-    tagline: 'Delivering global capability, without disruption',
+    title: 'Global Workforce & Mobility',
+    href: '/solutions/workforce',
     image: '/images/vessel-aerial.jpg',
     imageAlt: 'Aerial view of offshore vessel with helipad',
   },
@@ -37,64 +30,34 @@ const servicePillars = [
 const differentiators = [
   {
     title: 'Professional & Experienced',
-    description: 'A team of experts in the field with more than 50 years of experience.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
-      </svg>
-    ),
+    description: '50+ years combined expertise across design, commissioning, and construction.',
   },
   {
     title: 'Fast-track Service',
-    description: 'Accelerated response time and submission with dedicated 24/7 client support.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
+    description: 'Accelerated response and submission with dedicated 24/7 client support.',
   },
   {
-    title: 'Measurable Results Target',
-    description: 'A client-focused approach delivering high-quality, value-driven proposals with the flexibility to ensure optimal outcomes and maximum value for every engagement.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
+    title: 'Measurable Results',
+    description: 'Value-driven proposals ensuring optimal outcomes for every engagement.',
   },
   {
     title: 'Trusted Talent Network',
-    description: 'A global talent database of ~100,000+ specialists, supported by rigorous screening processes and full compliance with local and international hiring regulations.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-      </svg>
-    ),
+    description: '~100,000+ specialists with rigorous screening and full regulatory compliance.',
   },
   {
     title: '24/7 End-to-End Support',
-    description: 'Continuous support throughout the full lifecycle, from onboarding and mobilisation through to rotation management and demobilisation.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
+    description: 'Full lifecycle coverage from onboarding through to demobilisation.',
   },
   {
     title: 'Global Reach',
-    description: 'Mobilising expertise worldwide from Singapore across the Americas, Europe, Middle East, Asia, Africa, and Australia.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
-      </svg>
-    ),
+    description: 'Mobilising expertise worldwide from Singapore across six continents.',
   },
 ] as const;
 
 const stats = [
   { end: 50, suffix: '+', label: 'Years Combined Experience' },
   { end: 100, suffix: 'K+', label: 'Global Talent Database' },
-  { end: 200, suffix: '+', label: 'Equipment Packages Inspected' },
+  { end: 100, suffix: '+', label: 'Projects Executed' },
 ] as const;
 
 const partners = [
@@ -109,12 +72,12 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#031050]">
+      <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-16 sm:pt-40 sm:pb-20 md:pt-48 md:pb-24">
         <GradientMesh variant="dark" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal delay={300}>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.9] text-white">
+            <h1 className="font-hero text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.9] text-white">
               Where Partnership
               <br />
               Meets Performance
@@ -122,15 +85,8 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={450}>
-            <p className="mt-6 text-base sm:text-lg md:text-xl text-[var(--color-text-on-dark-muted)] max-w-2xl mx-auto leading-relaxed font-sans">
-              Engineering and asset integrity consultancy delivering
-              high-confidence project outcomes across the global energy sector.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={600}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="primary" href="/#what-we-do">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="primary" href="/#solutions">
                 Our Solutions
               </Button>
               <Button variant="ghost" href="/contact">
@@ -140,8 +96,39 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-      {/* Our Solutions */}
-      <section id="what-we-do" className="relative py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+
+      {/* Vision & Mission */}
+      <SectionWrapper background="off-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollReveal>
+            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
+              What Drives Us
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text-primary)]">
+              Mission &amp; Vision
+            </h2>
+          </ScrollReveal>
+
+          <div className="mt-10 space-y-6">
+            <ScrollReveal delay={200}>
+              <p className="text-lg md:text-xl font-sans leading-relaxed text-[var(--color-text-body)]">
+                To redefine project delivery and facility start-up through governed, <span className="text-[var(--color-cyan)] font-semibold">data-driven innovation</span> that accelerates execution and unlocks <span className="text-[var(--color-cyan)] font-semibold">commercial value</span>.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={300}>
+              <p className="text-lg md:text-xl font-sans leading-relaxed text-[var(--color-text-body)]">
+                To set the new standard for how complex projects are delivered — <span className="text-[var(--color-cyan)] font-semibold">faster, smarter</span>, and with improved <span className="text-[var(--color-cyan)] font-semibold">outcome certainty</span>.
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Solutions */}
+      <section id="solutions" className="relative py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
@@ -156,9 +143,84 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={200}>
-            <ServiceTabs pillars={servicePillars} differentiators={differentiators} stats={stats} />
-          </ScrollReveal>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {solutions.map((solution, i) => (
+              <ScrollReveal key={solution.title} delay={i * 100}>
+                <Link
+                  href={solution.href}
+                  className="group relative block aspect-[4/5] rounded-xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-12px_rgba(8,1,69,0.2)]"
+                >
+                  <Image
+                    src={solution.image}
+                    alt={solution.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-[var(--duration-smooth)] ease-[var(--ease-flow)] group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-[var(--duration-base)] group-hover:from-[var(--color-indigo)]/90 group-hover:via-[var(--color-indigo)]/40" />
+                  <div className="absolute inset-0 flex items-end p-6 sm:p-8">
+                    <div>
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-white leading-tight">
+                        {solution.title}
+                      </h3>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-sans font-semibold text-[var(--color-energy-end)] opacity-0 translate-y-2 transition-all duration-[var(--duration-base)] ease-[var(--ease-flow)] group-hover:opacity-100 group-hover:translate-y-0">
+                        Learn More
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M3 8h10M9 4l4 4-4 4" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Riviera */}
+      <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
+        <GradientMesh variant="dark" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <ScrollReveal>
+              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-energy-end)]">
+                Why Us
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                What Sets Us Apart
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+            {differentiators.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 80}>
+                <div>
+                  <div className="w-6 h-0.5 bg-[var(--color-energy-end)] rounded-full mb-4" />
+                  <h4 className="font-sans text-base font-bold text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1.5 text-sm font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
+                    {item.description}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-8 md:gap-4">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={i < stats.length - 1 ? 'md:border-r md:border-white/10 md:pr-4' : ''}
+              >
+                <StatCounter end={stat.end} suffix={stat.suffix} label={stat.label} dark />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -214,7 +276,7 @@ export default function Home() {
               <Button variant="primary" href="/contact">
                 Contact Us
               </Button>
-              <Button variant="ghost" href="/#what-we-do">
+              <Button variant="ghost" href="/#solutions">
                 View Our Solutions
               </Button>
             </div>

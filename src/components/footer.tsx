@@ -26,7 +26,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-[var(--color-text-on-dark-muted)] max-w-sm">
-              Where Partnership Meets Performance. Engineering and asset integrity consultancy delivering high-confidence project outcomes across the global energy sector.
+              Where Partnership Meets Performance. 
             </p>
           </div>
 

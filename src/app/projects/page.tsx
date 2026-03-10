@@ -88,7 +88,7 @@ const sectors = [
     title: "Oil & Gas",
     description: "Upstream, midstream, and downstream operations, from deepwater FPSO to refinery restart",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.468 5.99 5.99 0 00-1.925 3.547 5.975 5.975 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
       </svg>
@@ -98,7 +98,7 @@ const sectors = [
     title: "Renewables",
     description: "Offshore wind, solar, and emerging sustainable energy projects",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
       </svg>
     ),
@@ -107,7 +107,7 @@ const sectors = [
     title: "Marine",
     description: "Offshore and marine energy operations across global waters",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
       </svg>
     ),
@@ -116,7 +116,7 @@ const sectors = [
     title: "Power Generation",
     description: "Thermal, gas, and hybrid power systems",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
@@ -124,7 +124,7 @@ const sectors = [
 ] as const;
 
 const stats = [
-  { value: "200+", label: "Equipment Packages Inspected" },
+  { value: "100+", label: "Projects Executed" },
   { value: "300", label: "kbpd Maximum Assessment Capacity" },
   { value: "50+", label: "Years Combined Leadership" },
 ] as const;
@@ -171,9 +171,9 @@ export default function ProjectsPage() {
                   <GradientMesh variant="dark" className="opacity-50" />
                   <div className="absolute inset-0 flex items-end p-8">
                     <div className="text-white">
-                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">200+</div>
+                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">100+</div>
                       <div className="mt-1 text-sm font-sans font-medium text-white/70 uppercase tracking-wide">
-                        Equipment Packages Inspected
+                        Projects Executed
                       </div>
                     </div>
                   </div>
@@ -258,13 +258,15 @@ export default function ProjectsPage() {
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {sectors.map((sector, i) => (
             <ScrollReveal key={sector.title} delay={i * 100} className="h-full">
-              <div className="h-full flex flex-col text-center rounded-xl bg-white border border-[var(--color-grey-100)] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(8,1,69,0.1)]">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[var(--color-off-white)] text-[var(--color-cyan)] mx-auto">
-                  {sector.icon}
+              <div className="h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(8,1,69,0.1)]">
+                <div className="flex items-start gap-3">
+                  <div className="inline-flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-lg bg-[var(--color-off-white)] text-[var(--color-cyan)]">
+                    {sector.icon}
+                  </div>
+                  <h3 className="pt-1 font-sans text-lg font-bold text-[var(--color-text-primary)]">
+                    {sector.title}
+                  </h3>
                 </div>
-                <h3 className="mt-5 font-sans text-lg font-bold text-[var(--color-text-primary)]">
-                  {sector.title}
-                </h3>
                 <p className="mt-2 flex-grow text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
                   {sector.description}
                 </p>
