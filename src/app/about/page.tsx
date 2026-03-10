@@ -4,6 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { Button } from "@/components/ui/Button";
+import { GlobalReachMap } from "@/components/about/GlobalReachMap";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -45,13 +46,12 @@ const team = [
 ] as const;
 
 const regions = [
-  { name: "Singapore", label: "HQ", x: 50, y: 32 },
-  { name: "Americas", label: null, x: 8, y: 26 },
-  { name: "Europe", label: null, x: 28, y: 14 },
-  { name: "Middle East", label: null, x: 34, y: 30 },
-  { name: "Asia", label: null, x: 60, y: 18 },
-  { name: "Africa", label: null, x: 30, y: 48 },
-  { name: "Australia", label: null, x: 72, y: 50 },
+  { name: "Singapore", label: "HQ" },
+  { name: "Americas", label: null },
+  { name: "Europe", label: null },
+  { name: "Middle East", label: null },
+  { name: "Africa", label: null },
+  { name: "Australia", label: null },
 ] as const;
 
 export default function AboutPage() {
@@ -168,96 +168,35 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Global Reach */}
-      <section className="relative py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-8 md:py-10 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-3xl mx-auto">
-            <ScrollReveal>
-              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-energy-end)]">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Centered title — compact */}
+          <ScrollReveal>
+            <div className="text-center mb-5">
+              <p className="text-xs font-sans font-medium uppercase tracking-wider text-[var(--color-energy-end)] mb-1">
                 Where We Operate
               </p>
-            </ScrollReveal>
-            <ScrollReveal delay={100}>
-              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                A Global Reach
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                Global Reach
               </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={200}>
-              <p className="mt-4 text-lg font-display italic text-[var(--color-text-on-dark-muted)]">
-                Mobilising expertise worldwide, wherever projects demand.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal delay={300}>
-            <div className="mt-16 relative mx-auto max-w-4xl">
-              <svg viewBox="0 0 100 64" className="w-full h-auto" aria-label="World map showing Riviera Energy operational regions">
-                <rect width="100" height="64" fill="none" />
-
-                {/* Connection lines from Singapore HQ to each region */}
-                {regions.filter(r => !r.label).map((region) => (
-                  <line
-                    key={`line-${region.name}`}
-                    x1={50}
-                    y1={32}
-                    x2={region.x}
-                    y2={region.y}
-                    stroke="rgba(89,218,227,0.12)"
-                    strokeWidth="0.25"
-                    strokeDasharray="1 0.8"
-                  />
-                ))}
-
-                {/* HQ pulse ring */}
-                <circle cx={50} cy={32} r="4" fill="none" stroke="rgba(89,218,227,0.08)" strokeWidth="0.2" />
-                <circle cx={50} cy={32} r="8" fill="none" stroke="rgba(89,218,227,0.05)" strokeWidth="0.15" />
-
-                {/* Region markers */}
-                {regions.map((region) => {
-                  const isHQ = region.label === "HQ";
-                  return (
-                    <g key={region.name}>
-                      {/* Outer glow */}
-                      <circle cx={region.x} cy={region.y} r={isHQ ? 2 : 1.2} fill="var(--color-energy-end)" opacity={isHQ ? 0.2 : 0.15} />
-                      {/* Dot */}
-                      <circle cx={region.x} cy={region.y} r={isHQ ? 1 : 0.6} fill="var(--color-energy-end)" />
-
-                      {/* HQ badge */}
-                      {isHQ && (
-                        <>
-                          <rect x={region.x - 3} y={region.y - 5} width="6" height="2.5" rx="0.5" fill="var(--color-amber)" />
-                          <text x={region.x} y={region.y - 3.2} textAnchor="middle" fill="white" fontSize="1.5" fontWeight="700">
-                            HQ
-                          </text>
-                        </>
-                      )}
-
-                      {/* Label */}
-                      <text
-                        x={region.x}
-                        y={region.y + (isHQ ? 4 : 3)}
-                        textAnchor="middle"
-                        fill={isHQ ? 'rgba(255,255,255,0.95)' : 'rgba(148,163,184,0.9)'}
-                        fontSize={isHQ ? 2 : 1.8}
-                        fontWeight={isHQ ? 600 : 500}
-                      >
-                        {region.name}
-                      </text>
-                    </g>
-                  );
-                })}
-              </svg>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={400}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-8">
+          {/* Map */}
+          <ScrollReveal delay={100}>
+            <GlobalReachMap />
+          </ScrollReveal>
+
+          {/* Legend */}
+          <ScrollReveal delay={200}>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5">
               {regions.map((region) => (
-                <div key={region.name} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[var(--color-energy-end)]" />
-                  <span className="text-sm font-sans text-[var(--color-text-on-dark-muted)]">
+                <div key={region.name} className="flex items-center gap-1.5">
+                  <div className={`w-1.5 h-1.5 rounded-full ${region.label === "HQ" ? "bg-[var(--color-amber)]" : "bg-[var(--color-energy-start)]"}`} />
+                  <span className="text-xs font-sans text-white/50">
                     {region.name}
-                    {region.label && <span className="ml-1 text-xs font-semibold text-[var(--color-amber)]">({region.label})</span>}
+                    {region.label && <span className="ml-0.5 font-semibold text-[var(--color-amber)]">({region.label})</span>}
                   </span>
                 </div>
               ))}

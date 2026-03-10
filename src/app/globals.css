@@ -130,6 +130,228 @@
 
 
 /* ============================================
+   Global Reach Map — Markers & Popups
+   ============================================ */
+
+/* Reset Leaflet's default icon styles */
+.leaflet-marker-hq,
+.leaflet-marker-region {
+  background: none !important;
+  border: none !important;
+}
+
+/* Marker base */
+.re-marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── HQ Marker ── */
+
+.re-marker__pulse {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(17, 107, 248, 0.4);
+  animation: re-marker-pulse 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.re-marker__dot--hq {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-energy-start, #116BF8);
+  box-shadow: 0 0 0 4px rgba(17, 107, 248, 0.25), 0 0 24px 4px rgba(17, 107, 248, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.re-marker__badge {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-amber, #E8A317);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(232, 163, 23, 0.45);
+}
+
+@keyframes re-marker-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ── Region Marker ── */
+
+.re-marker__glow {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(17, 107, 248, 0.15);
+  transition: all 300ms ease;
+}
+
+.re-marker--region:hover .re-marker__glow {
+  transform: scale(1.5);
+  background: rgba(17, 107, 248, 0.2);
+}
+
+.re-marker__dot--region {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-energy-start, #116BF8);
+  box-shadow: 0 0 0 3px rgba(17, 107, 248, 0.2), 0 0 14px 2px rgba(17, 107, 248, 0.3);
+  position: relative;
+  z-index: 2;
+  transition: all 300ms ease;
+}
+
+.re-marker--region:hover .re-marker__dot--region {
+  background: var(--color-energy-mid, #1994E1);
+  box-shadow: 0 0 0 4px rgba(17, 107, 248, 0.3), 0 0 20px 4px rgba(17, 107, 248, 0.4);
+  transform: scale(1.2);
+}
+
+/* ── Popups ── */
+
+.re-popup .leaflet-popup-content-wrapper {
+  background: rgba(5, 38, 152, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(17, 107, 248, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px -8px rgba(5, 38, 152, 0.4);
+  padding: 0;
+}
+
+.re-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: 1;
+}
+
+.re-popup .leaflet-popup-tip {
+  background: rgba(5, 38, 152, 0.95);
+  border: none;
+  box-shadow: none;
+}
+
+.re-popup .leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 18px !important;
+  top: 6px !important;
+  right: 8px !important;
+  transition: color 200ms ease;
+}
+.re-popup .leaflet-popup-close-button:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.re-popup__content {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.re-popup__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.re-popup__name {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.re-popup__hq-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #E8A317;
+  background: rgba(232, 163, 23, 0.15);
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+.re-popup__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(33, 188, 238, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.re-popup__city {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+.re-popup__address {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.re-popup__phone {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Leaflet UI Overrides ── */
+
+.re-global-map .leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.re-global-map .leaflet-control-zoom a {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #052698 !important;
+  border-bottom: 1px solid rgba(5, 38, 152, 0.08) !important;
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 16px !important;
+  transition: background 200ms ease;
+}
+.re-global-map .leaflet-control-zoom a:hover {
+  background: rgba(17, 107, 248, 0.08) !important;
+}
+
+.re-global-map .leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.7) !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  border-radius: 4px 0 0 0 !important;
+}
+.re-global-map .leaflet-control-attribution a {
+  color: #052698 !important;
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 
