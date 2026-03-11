@@ -20,7 +20,7 @@ export default function ContactPage() {
   return (
     <main>
       {/* Hero + Contact Info — single section, no card wrapper */}
-      <section className="relative pt-28 pb-16 sm:pb-20 md:pt-40 md:pb-24 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-10 sm:pb-14 md:pt-40 md:pb-16 bg-white overflow-hidden">
         <div
           className="absolute top-28 right-8 md:right-20 w-48 h-48 rounded-full bg-[#116BF8] opacity-[0.06] blur-3xl hidden lg:block"
           aria-hidden="true"
@@ -35,7 +35,7 @@ export default function ContactPage() {
               </p>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h1 className="mt-4 font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-text-primary)]">
+              <h1 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
                 Get in Touch
               </h1>
             </ScrollReveal>
@@ -140,21 +140,37 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Google Map — full width, edge to edge */}
-      <section>
-        <ScrollReveal>
-          <iframe
-            title="Riviera Energy Singapore Office — 152 Beach Road, Gateway East"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7931!2d103.8556!3d1.3005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a7a8e1e4a1%3A0x2e0f0c0c0c0c0c0c!2sGateway+East%2C+152+Beach+Rd%2C+Singapore+189721!5e0!3m2!1sen!2ssg!4v1710000000000"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full h-[320px] sm:h-[400px] md:h-[450px] block"
-          />
-        </ScrollReveal>
+      {/* Google Map — wide with rounded corners */}
+      <section className="pt-8 sm:pt-10 pb-12 sm:pb-16 bg-[var(--color-off-white)]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <div className="mb-6">
+              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)] mb-1">
+                Visit Us
+              </p>
+              <h2 className="font-sans text-lg md:text-xl font-bold text-[var(--color-text-primary)]">
+                Our Singapore Office
+              </h2>
+            </div>
+          </ScrollReveal>
+        </div>
+        <div className="mx-auto px-4 sm:px-6">
+          <ScrollReveal>
+            <div className="rounded-xl overflow-hidden shadow-[0_4px_24px_-6px_rgba(8,1,69,0.08)] border border-[var(--color-grey-100)]">
+              <iframe
+                title="Riviera Energy Singapore Office — 152 Beach Road, Gateway East"
+                src="https://maps.google.com/maps?q=Gateway+East,+152+Beach+Road,+Singapore+189721&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[320px] sm:h-[400px] md:h-[450px] block"
+              />
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
     </main>
   );
