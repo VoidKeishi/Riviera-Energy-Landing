@@ -1,21 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  Sphere,
-  Graticule,
-  createCoordinates,
-} from '@vnedyalk0v/react19-simple-maps';
+import { useState, useCallback } from 'react';
+import { ProjectMap } from './ProjectMap';
 import { usePrefersReducedMotion } from '@/hooks/use-reduced-motion';
-import worldAtlasRaw from 'world-atlas/countries-110m.json';
-import type { Topology } from 'topojson-specification';
-
-// Cast JSON import to proper TopoJSON type (JSON imports infer `type: string` instead of `type: "Topology"`)
-const worldAtlas = worldAtlasRaw as unknown as Topology;
 
 // Type definitions
 export interface ProjectData {
@@ -34,198 +21,145 @@ interface ProjectExplorerProps {
 
 export function ProjectExplorer({ projects }: ProjectExplorerProps) {
   const hasProjects = projects.length > 0;
-  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(hasProjects ? projects[0] : null);
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
+    hasProjects ? projects[0] : null
+  );
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Slight east shift to center on project locations
-  const mapCenter = useMemo(() => createCoordinates(20, 5), []);
+  const handleSelectProject = useCallback((project: ProjectData) => {
+    setSelectedProject(project);
+  }, []);
 
   if (!hasProjects) {
     return null;
   }
 
   return (
-    <div className="w-full flex flex-col gap-6">
-      {/* Map Panel - Full width, wider aspect ratio */}
-      <div
-        className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-[#F8FAFC] rounded-2xl overflow-hidden border border-[var(--color-grey-100)] shadow-sm pb-8"
-        role="application"
-        aria-label="Interactive map of project locations"
-      >
-        <ComposableMap
-          projection="geoEqualEarth"
-          projectionConfig={{
-            scale: 220,
-            center: mapCenter,
-          }}
-          className="w-full h-full"
-          style={{ width: '100%', height: '100%' }}
-        >
-          {/* Ocean background */}
-          <Sphere stroke="#CBD5E1" strokeWidth={0.5} fill="#F0F4FA" />
-
-          {/* Subtle graticule grid */}
-          <Graticule stroke="#E2E8F0" strokeWidth={0.3} />
-
-          {/* Country shapes */}
-          <Geographies geography={worldAtlas}>
-            {({ geographies }) =>
-              geographies.map((geo, i) => (
-                <Geography
-                  key={(geo as { rsmKey?: string }).rsmKey ?? `geo-${i}`}
-                  geography={geo}
-                  fill="#E0E7F1"
-                  stroke="#C8D0DC"
-                  strokeWidth={0.5}
-                  style={{
-                    default: { outline: 'none' },
-                    hover: { outline: 'none', fill: '#D0DAE8' },
-                    pressed: { outline: 'none', fill: '#D0DAE8' },
-                  }}
-                  tabIndex={-1}
-                />
-              ))
-            }
-          </Geographies>
-
-          {/* Project Markers with always-visible labels */}
-          {projects.map((project) => {
-            const coords = createCoordinates(project.coordinates[1], project.coordinates[0]);
-            const isSelected = selectedProject?.title === project.title;
-
-            return (
-              <Marker
-                key={project.title}
-                coordinates={coords}
-                onClick={() => setSelectedProject(project)}
-                className="group cursor-pointer focus:outline-none"
-                tabIndex={0}
-                role="button"
-                aria-label={`Select project: ${project.title} in ${project.location}`}
-                aria-pressed={isSelected}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedProject(project);
-                  }
-                }}
-              >
-                {/* Transparent hit area for easier clicking */}
-                <circle
-                  r={24}
-                  fill="transparent"
-                  className="cursor-pointer"
-                />
-
-                {/* Outer ring for selected */}
-                {isSelected && (
-                  <circle
-                    r={18}
-                    fill="rgba(89, 218, 227, 0.12)"
-                    stroke="none"
-                    style={{
-                      transition: prefersReducedMotion ? 'none' : 'all 300ms ease-out',
-                    }}
-                  />
-                )}
-
-                {/* Marker dot - significantly bigger */}
-                <circle
-                  r={isSelected ? 10 : 7}
-                  fill={isSelected ? '#0098B5' : 'rgba(89, 218, 227, 0.85)'}
-                  stroke={isSelected ? '#0958B3' : '#2585C4'}
-                  strokeWidth={2}
-                  style={{
-                    transition: prefersReducedMotion ? 'none' : 'all 300ms cubic-bezier(0.22, 1, 0.36, 1)',
-                  }}
-                />
-
-                {/* Always-visible label - slightly larger */}
-                <text
-                  textAnchor="start"
-                  x={14}
-                  y={4}
-                  className="pointer-events-none select-none"
-                  style={{
-                    fill: isSelected ? '#080145' : '#475569',
-                    fontSize: '12px',
-                    fontWeight: isSelected ? 700 : 500,
-                    textShadow: '0 0 4px rgba(255,255,255,0.95), 0 0 8px rgba(255,255,255,0.7)',
-                    transition: prefersReducedMotion ? 'none' : 'all 200ms ease',
-                  }}
-                >
-                  {project.title}
-                </text>
-              </Marker>
-            );
-          })}
-        </ComposableMap>
+    <div
+      className="relative rounded-xl overflow-hidden border border-[var(--color-grey-100)] shadow-[0_4px_24px_-4px_rgba(8,1,69,0.08)] h-[440px] md:h-[500px] lg:h-[560px] bg-[#e8ecf0]"
+      role="application"
+      aria-label="Interactive map of project locations — use legend to view project details"
+    >
+      {/* Full map background */}
+      <div className="absolute inset-0">
+        <ProjectMap
+          projects={projects}
+          selectedProject={selectedProject}
+          onSelectProject={handleSelectProject}
+        />
       </div>
 
-      {/* Detail Panel — Below Map, Compact Layout */}
-      {selectedProject && (
-        <div
-          key={selectedProject.title}
-          className="w-full bg-white rounded-2xl border border-[var(--color-grey-100)] shadow-sm p-5 md:p-6"
-          style={prefersReducedMotion ? undefined : {
-            animation: 'detail-fade-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both',
-          }}
-        >
-          <div className="flex flex-col md:flex-row gap-6 items-start">
-            {/* Left Column: Title & Main Info */}
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold bg-[var(--color-off-white)] text-[var(--color-cyan)] border border-[var(--color-grey-100)] uppercase tracking-wide">
+      {/* Overlaid UI — all embedded inside the map */}
+      <div className="absolute inset-0 pointer-events-none z-[1000]">
+
+        {/* Bottom-left: Project detail card */}
+        {selectedProject && (
+          <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 pointer-events-auto max-w-sm md:max-w-md">
+            <div
+              key={selectedProject.title}
+              className="bg-white/92 backdrop-blur-md rounded-lg border border-[var(--color-grey-100)] shadow-lg p-3 md:p-4"
+              style={prefersReducedMotion ? undefined : {
+                animation: 'proj-detail-slide-up 350ms cubic-bezier(0.22, 1, 0.36, 1) both',
+              }}
+            >
+              {/* Header row: sector + location */}
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-sans font-semibold bg-[var(--color-cyan)]/10 text-[var(--color-cyan)] uppercase tracking-wide">
                   {selectedProject.sector}
                 </span>
-                <span className="text-sm font-sans text-[var(--color-text-muted)] flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-[var(--color-energy-mid)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <span className="text-[11px] md:text-xs font-sans text-[var(--color-text-muted)] flex items-center gap-1">
+                  <svg className="w-3 h-3 text-[var(--color-energy-mid)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   {selectedProject.location}
                 </span>
               </div>
-              
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] leading-tight mb-3">
+
+              {/* Title */}
+              <h3 className="font-display text-base md:text-lg font-bold text-[var(--color-text-primary)] leading-tight mb-1.5">
                 {selectedProject.title}
               </h3>
-              
-              <p className="text-base font-sans text-[var(--color-text-body)] leading-relaxed max-w-3xl">
+
+              {/* Description */}
+              <p className="text-xs md:text-sm font-sans text-[var(--color-text-body)] leading-relaxed mb-2 line-clamp-2">
                 {selectedProject.description}
               </p>
-            </div>
 
-            {/* Right Column: Highlight & Services */}
-            <div className="w-full md:w-auto md:min-w-[320px] lg:min-w-[360px] flex flex-col gap-4">
-              <div className="bg-[var(--color-off-white)] rounded-xl p-4 border border-[var(--color-grey-100)]">
-                <h4 className="text-[10px] font-sans font-semibold text-[var(--color-cyan)] uppercase tracking-wide mb-2">
-                  Key Highlight
-                </h4>
-                <p className="text-sm font-sans font-medium text-[var(--color-text-primary)] leading-snug">
-                  {selectedProject.highlight}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {selectedProject.services.map((service) => (
-                  <span
-                    key={service}
-                    className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-sans font-medium bg-white text-[var(--color-text-muted)] border border-[var(--color-grey-200)] shadow-sm"
-                  >
-                    {service}
+              {/* Highlight + services */}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-start gap-1.5">
+                  <span className="text-[9px] font-sans font-semibold text-[var(--color-cyan)] uppercase tracking-wide whitespace-nowrap pt-0.5">
+                    Highlight
                   </span>
-                ))}
+                  <span className="text-[11px] md:text-xs font-sans font-medium text-[var(--color-text-primary)] leading-snug">
+                    {selectedProject.highlight}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {selectedProject.services.map((service) => (
+                    <span
+                      key={service}
+                      className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] md:text-[10px] font-sans font-medium bg-[var(--color-off-white)] text-[var(--color-text-muted)] border border-[var(--color-grey-200)]"
+                    >
+                      {service}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
+        )}
+
+        {/* Bottom-right: Project legend selector */}
+        <div className="absolute bottom-3 right-3 md:bottom-4 md:right-4 pointer-events-auto">
+          <div className="bg-white/90 backdrop-blur-md rounded-lg border border-[var(--color-grey-100)] shadow-lg overflow-hidden">
+            {/* Legend header */}
+            <div className="px-3 py-1.5 border-b border-[var(--color-grey-100)] bg-[var(--color-off-white)]/60">
+              <span className="text-[9px] font-sans font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                Projects
+              </span>
+            </div>
+            {/* Legend items */}
+            <div className="py-1">
+              {projects.map((project) => {
+                const isSelected = selectedProject?.title === project.title;
+                return (
+                  <button
+                    key={project.title}
+                    onClick={() => handleSelectProject(project)}
+                    className={`
+                      w-full flex items-center gap-2 px-3 py-1.5 text-left text-[11px] md:text-xs font-sans
+                      transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]
+                      focus:outline-none focus:bg-[var(--color-cyan)]/5
+                      ${isSelected
+                        ? 'bg-[var(--color-cyan)]/8 text-[var(--color-cyan)] font-semibold'
+                        : 'text-[var(--color-text-body)] hover:bg-[var(--color-off-white)] hover:text-[var(--color-text-primary)]'
+                      }
+                    `}
+                    aria-pressed={isSelected}
+                  >
+                    <span
+                      className={`w-2 h-2 rounded-full flex-shrink-0 transition-all duration-300 ${
+                        isSelected
+                          ? 'bg-[var(--color-cyan)] shadow-[0_0_0_2px_rgba(0,152,181,0.2)]'
+                          : 'bg-[var(--color-energy-end)]/60'
+                      }`}
+                    />
+                    <span className="truncate max-w-[180px] md:max-w-[200px]">{project.title}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      )}
+
+      </div>
 
       {/* Keyframe animations */}
       <style>{`
-        @keyframes detail-fade-in {
-          from { opacity: 0; transform: translateY(8px); }
+        @keyframes proj-detail-slide-up {
+          from { opacity: 0; transform: translateY(12px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>

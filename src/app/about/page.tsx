@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { GradientMesh } from "@/components/ui/GradientMesh";
 import { Button } from "@/components/ui/Button";
 import { GlobalReachMap } from "@/components/about/GlobalReachMap";
 
@@ -123,7 +122,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <SectionWrapper background="white">
+      <SectionWrapper background="off-white">
         <div className="text-center max-w-3xl mx-auto">
           <ScrollReveal>
             <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
@@ -168,16 +167,15 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Global Reach */}
-      <section className="relative py-8 md:py-10 bg-[var(--color-indigo)] text-white overflow-hidden">
-        <GradientMesh variant="dark" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-8 md:py-10 bg-white overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Centered title — compact */}
           <ScrollReveal>
             <div className="text-center mb-5">
-              <p className="text-xs font-sans font-medium uppercase tracking-wider text-[var(--color-energy-end)] mb-1">
+              <p className="text-xs font-sans font-medium uppercase tracking-wider text-[var(--color-cyan)] mb-1">
                 Where We Operate
               </p>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
                 Global Reach
               </h2>
             </div>
@@ -194,7 +192,7 @@ export default function AboutPage() {
               {regions.map((region) => (
                 <div key={region.name} className="flex items-center gap-1.5">
                   <div className={`w-1.5 h-1.5 rounded-full ${region.label === "HQ" ? "bg-[var(--color-amber)]" : "bg-[var(--color-energy-start)]"}`} />
-                  <span className="text-xs font-sans text-white/50">
+                  <span className="text-xs font-sans text-[var(--color-text-muted)]">
                     {region.name}
                     {region.label && <span className="ml-0.5 font-semibold text-[var(--color-amber)]">({region.label})</span>}
                   </span>
@@ -206,7 +204,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <SectionWrapper background="white">
+      <SectionWrapper background="off-white">
         <div className="text-center max-w-3xl mx-auto">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">

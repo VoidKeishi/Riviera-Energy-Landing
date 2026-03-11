@@ -2,7 +2,6 @@ import { ProjectExplorer } from '@/components/projects/ProjectExplorer';
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { Button } from "@/components/ui/Button";
 
@@ -84,41 +83,85 @@ const projects = [
   },
 ] as const;
 
-const sectors = [
+/* Professional industry icons — clean line style, 24x24 viewBox */
+const industries = [
   {
-    title: "Oil & Gas",
-    description: "Upstream, midstream, and downstream operations, from deepwater FPSO to refinery restart",
+    name: 'Oil & Gas',
+    scope: 'Onshore & offshore, upstream to downstream',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.047 8.287 8.287 0 009 9.601a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.468 5.99 5.99 0 00-1.925 3.547 5.975 5.975 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <path d="M12 2v4" />
+        <path d="M12 6l4 3v9H8V9l4-3z" />
+        <path d="M8 18H6v-5l2-1.5" />
+        <path d="M16 18h2v-5l-2-1.5" />
+        <path d="M6 22h12" />
+        <path d="M8 18v4" />
+        <path d="M16 18v4" />
+        <path d="M10 12h4" />
+        <path d="M10 15h4" />
       </svg>
     ),
   },
   {
-    title: "Renewables",
-    description: "Offshore wind, solar, and emerging sustainable energy projects",
+    name: 'Renewable Energy',
+    scope: 'Wind, solar & emerging sustainable projects',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <circle cx="12" cy="12" r="2" />
+        <path d="M12 10V2.5c0 0 3.5 1 3.5 4.5S12 10 12 10z" />
+        <path d="M13.7 12.7l5.3 3.1c0 0-.5 3.5-3.9 2.5S13.7 12.7 13.7 12.7z" />
+        <path d="M10.3 12.7l-5.3 3.1c0 0 .5 3.5 3.9 2.5S10.3 12.7 10.3 12.7z" />
+        <path d="M10 22h4" />
+        <path d="M12 14v8" />
       </svg>
     ),
   },
   {
-    title: "Marine",
-    description: "Offshore and marine energy operations across global waters",
+    name: 'Marine',
+    scope: 'Diverse marine projects, global placement',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <path d="M4 16l1.5-8h13L20 16" />
+        <path d="M6 8V5h4v3" />
+        <path d="M12 8V3l2 1" />
+        <path d="M2 16h20" />
+        <path d="M2 19c1.5 1.5 3 1.5 4 0s2.5-1.5 4 0 3 1.5 4 0 2.5-1.5 4 0 2.5 1.5 4 0" />
       </svg>
     ),
   },
   {
-    title: "Power Generation",
-    description: "Thermal, gas, and hybrid power systems",
+    name: 'Process Engineering',
+    scope: 'Specialists across the engineering lifecycle',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <rect x="2" y="3" width="6" height="4" rx="1" />
+        <rect x="16" y="3" width="6" height="4" rx="1" />
+        <rect x="9" y="17" width="6" height="4" rx="1" />
+        <path d="M5 7v3a2 2 0 002 2h10a2 2 0 002-2V7" />
+        <path d="M12 12v5" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Construction',
+    scope: 'Safety-focused, efficiency-driven staffing',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <path d="M2 22h20" />
+        <path d="M6 22V10l6-4 6 4v12" />
+        <path d="M10 22v-5h4v5" />
+        <path d="M10 13h4" />
+        <path d="M3 22v-6l3-2" />
+        <path d="M21 22v-6l-3-2" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Power Generation',
+    scope: 'Thermal, gas & hybrid power systems',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+        <path d="M13 2L4 14h7l-2 8 9-12h-7l2-8z" />
       </svg>
     ),
   },
@@ -193,31 +236,44 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Project Case Studies */}
-      <SectionWrapper background="off-white">
-        <div className="text-center max-w-3xl mx-auto">
-          <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Case Studies
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              Selected Project Experience
-            </h2>
-          </ScrollReveal>
+      {/* Project Case Studies — Full-bleed map */}
+      <section className="relative bg-[var(--color-off-white)] pb-16 sm:pb-24 md:pb-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-8 sm:pt-12 md:pt-16 pb-4 md:pb-6">
+          <div className="text-center max-w-3xl mx-auto">
+            <ScrollReveal>
+              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
+                Case Studies
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
+                Selected Project Experience
+              </h2>
+            </ScrollReveal>
+          </div>
         </div>
 
-        <ScrollReveal delay={200}>
-          <div className="mt-8">
+        {/* Map contained within standard layout */}
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
             <ProjectExplorer projects={projects} />
-          </div>
-        </ScrollReveal>
-      </SectionWrapper>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Stats */}
       <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/offshore-platform-night.jpg"
+            alt="Offshore platform illuminated at night"
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/85 via-[var(--color-indigo)]/70 to-[var(--color-indigo)]" />
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
@@ -249,41 +305,43 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Sectors */}
-      <SectionWrapper background="white">
-        <div className="text-center max-w-3xl mx-auto">
-          <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Industries
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              Sectors We Serve
-            </h2>
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {sectors.map((sector, i) => (
-            <ScrollReveal key={sector.title} delay={i * 100} className="h-full">
-              <div className="h-full flex flex-col rounded-xl bg-white border border-[var(--color-grey-100)] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:shadow-[0_12px_30px_-8px_rgba(8,1,69,0.1)]">
-                <div className="flex items-start gap-3">
-                  <div className="inline-flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-lg bg-[var(--color-off-white)] text-[var(--color-cyan)]">
-                    {sector.icon}
-                  </div>
-                  <h3 className="pt-1 font-sans text-lg font-bold text-[var(--color-text-primary)]">
-                    {sector.title}
-                  </h3>
-                </div>
-                <p className="mt-2 flex-grow text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
-                  {sector.description}
-                </p>
-              </div>
+      {/* Industries */}
+      <section className="py-10 sm:py-14 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <ScrollReveal>
+              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
+                Sectors
+              </p>
             </ScrollReveal>
-          ))}
+            <ScrollReveal delay={100}>
+              <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text-primary)]">
+                Industries We Serve
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {industries.map((industry, i) => (
+              <ScrollReveal key={industry.name} delay={i * 60}>
+                <div className="h-full flex items-start gap-4 rounded-xl border border-[var(--color-grey-100)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-6px_rgba(8,1,69,0.08)]">
+                  <div className="flex-shrink-0 flex items-center justify-center w-11 h-11 rounded-lg bg-[var(--color-energy-start)]/8 text-[var(--color-energy-start)]">
+                    {industry.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-sans text-sm font-bold text-[var(--color-text-primary)] leading-snug">
+                      {industry.name}
+                    </h3>
+                    <p className="mt-1 text-xs font-sans leading-relaxed text-[var(--color-text-muted)]">
+                      {industry.scope}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-      </SectionWrapper>
+      </section>
 
       {/* CTA */}
       <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">

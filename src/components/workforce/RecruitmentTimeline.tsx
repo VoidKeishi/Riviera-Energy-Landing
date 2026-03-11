@@ -39,12 +39,12 @@ export function RecruitmentTimeline() {
   return (
     <div className="relative">
       {/* Connecting line — desktop */}
-      <div className="hidden lg:block absolute top-5 left-[7%] right-[7%] h-px bg-white/15" />
+      <div className="hidden lg:block absolute top-6 left-[7%] right-[7%] h-px bg-white/20" />
 
       {/* Progress fill line */}
       {active !== null && (
         <div
-          className="hidden lg:block absolute top-5 left-[7%] h-px bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)] transition-all duration-500 ease-[var(--ease-flow)]"
+          className="hidden lg:block absolute top-6 left-[7%] h-px bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)] transition-all duration-500 ease-[var(--ease-flow)]"
           style={{ width: `${(active / (steps.length - 1)) * 86}%` }}
         />
       )}
@@ -63,17 +63,17 @@ export function RecruitmentTimeline() {
               {/* Circle */}
               <div
                 className={`
-                  inline-flex items-center justify-center w-10 h-10 rounded-full
+                  inline-flex items-center justify-center w-12 h-12 rounded-full
                   relative z-10 mb-3 transition-all duration-[var(--duration-base)] ease-[var(--ease-flow)]
                   ${isActive
-                    ? 'bg-[var(--color-energy-start)] border-2 border-[var(--color-energy-end)] shadow-[0_0_20px_rgba(17,107,248,0.4)] scale-110'
-                    : 'bg-[var(--color-indigo)] border border-white/20 group-hover:border-white/40'
+                    ? 'energy-gradient border-2 border-[var(--color-energy-end)] shadow-[0_0_24px_rgba(89,218,227,0.35)] scale-110'
+                    : 'bg-[#0c1d5a] border-2 border-white/25 group-hover:border-white/40'
                   }
                 `}
               >
                 <span
                   className={`
-                    text-xs font-sans font-bold transition-colors duration-[var(--duration-base)]
+                    text-sm font-sans font-bold transition-colors duration-[var(--duration-base)]
                     ${isActive ? 'text-white' : 'text-[var(--color-energy-end)]'}
                   `}
                 >
