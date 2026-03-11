@@ -99,8 +99,8 @@ export default function AboutPage() {
               <ScrollReveal delay={300}>
                 <div className="aspect-[3/4] rounded-xl overflow-hidden relative lg:-mr-8">
                   <Image
-                    src="/images/platform-ocean.jpg"
-                    alt="Offshore platform in calm ocean waters"
+                    src="/images/platform-towing.jpg"
+                    alt="Jack-up offshore platform being positioned by tugboats in tropical waters"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 40vw"
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-indigo)]/80 via-transparent to-transparent" />
                   <div className="absolute inset-0 flex items-end p-8">
                     <div className="text-white">
-                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">3</div>
+                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">3+</div>
                       <div className="mt-1 text-sm font-sans font-medium text-white/70 uppercase tracking-wide">
                         Decades of Excellence
                       </div>

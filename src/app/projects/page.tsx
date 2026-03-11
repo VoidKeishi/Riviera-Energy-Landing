@@ -1,5 +1,6 @@
 import { ProjectExplorer } from '@/components/projects/ProjectExplorer';
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { GradientMesh } from "@/components/ui/GradientMesh";
@@ -167,8 +168,16 @@ export default function ProjectsPage() {
 
             <div className="lg:col-span-5 relative">
               <ScrollReveal delay={300}>
-                <div className="aspect-[3/4] rounded-xl bg-gradient-to-br from-[var(--color-navy-mid)] to-[var(--color-indigo)] overflow-hidden relative lg:-mr-8">
-                  <GradientMesh variant="dark" className="opacity-50" />
+                <div className="aspect-[7/9] rounded-xl overflow-hidden relative lg:-mr-8">
+                  <Image
+                    src="/images/offshore-construction.jpg"
+                    alt="Heavy-lift vessel performing offshore construction with crane operations at sea"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-indigo)]/80 via-transparent to-transparent" />
                   <div className="absolute inset-0 flex items-end p-8">
                     <div className="text-white">
                       <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">100+</div>

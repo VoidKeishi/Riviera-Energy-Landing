@@ -12,18 +12,21 @@ const solutions = [
     href: '/solutions/commissioning',
     image: '/images/offshore-platform-night.jpg',
     imageAlt: 'Offshore platform illuminated at night',
+    imagePosition: 'center center',
   },
   {
     title: 'Strategic Project Consultancy',
     href: '/solutions/consultancy',
     image: '/images/refinery-complex.jpg',
     imageAlt: 'Industrial refinery complex in daylight',
+    imagePosition: 'center 100%',
   },
   {
     title: 'Global Workforce & Mobility',
     href: '/solutions/workforce',
     image: '/images/vessel-aerial.jpg',
     imageAlt: 'Aerial view of offshore vessel with helipad',
+    imagePosition: 'center center',
   },
 ];
 
@@ -61,7 +64,7 @@ const stats = [
 ] as const;
 
 const partners = [
-  'ExxonMobil', 'Woodside Energy', 'Shell', 'BP', 'Santos', 'BW Offshore',
+  'ExxonMobil', 'Shell', 'Santos', 'BW Offshore', 'MODEC', 'IKM', 'TechnipFMC',
   'Nabors', 'COSCO Shipping', 'Cyan Renewables', 'Twinza', 'Argo Marine',
   'SOFEC', 'Yinson Production', 'IKM', 'UTEC Geo-services',
   'Red Rock Oilfield Services', 'OMS Group', 'LD Armateurs', 'LD Travocean',
@@ -72,7 +75,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-16 sm:pt-40 sm:pb-20 md:pt-48 md:pb-24">
+      <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-24 sm:pt-40 sm:pb-32 md:pt-48 md:pb-40 lg:pb-48">
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
@@ -166,6 +169,7 @@ export default function Home() {
                     alt={solution.imageAlt}
                     fill
                     className="object-cover transition-transform duration-[var(--duration-smooth)] ease-[var(--ease-flow)] group-hover:scale-105"
+                    style={{ objectPosition: solution.imagePosition }}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent transition-all duration-[var(--duration-base)] group-hover:from-[var(--color-indigo)]/90 group-hover:via-[var(--color-indigo)]/40" />
