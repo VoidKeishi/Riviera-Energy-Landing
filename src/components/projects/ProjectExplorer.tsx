@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, type ReactNode } from 'react';
 import { ProjectMap } from './ProjectMap';
 import { usePrefersReducedMotion } from '@/hooks/use-reduced-motion';
 
@@ -12,7 +12,34 @@ export interface ProjectData {
   coordinates: readonly [number, number]; // [lat, lng]
   services: readonly string[];
   description: string;
-  highlight: string;
+  highlights: readonly string[];
+}
+
+/** Render description text with highlight phrases visually emphasised */
+function renderHighlightedText(text: string, phrases: readonly string[]): ReactNode {
+  if (!phrases.length) return text;
+
+  // Sort longest-first to prevent partial matches
+  const sorted = [...phrases].sort((a, b) => b.length - a.length);
+  const escaped = sorted.map((h) => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
+  const parts = text.split(pattern);
+
+  return parts.map((part, i) => {
+    const isMatch = sorted.some((h) => h.toLowerCase() === part.toLowerCase());
+    if (isMatch) {
+      return (
+        <mark
+          key={i}
+          className="bg-[var(--color-cyan)]/8 text-[var(--color-energy-start)] font-semibold rounded-sm px-0.5 not-italic"
+          style={{ textDecoration: 'none' }}
+        >
+          {part}
+        </mark>
+      );
+    }
+    return part;
+  });
 }
 
 interface ProjectExplorerProps {
@@ -81,31 +108,21 @@ export function ProjectExplorer({ projects }: ProjectExplorerProps) {
                 {selectedProject.title}
               </h3>
 
-              {/* Description */}
-              <p className="text-xs md:text-sm font-sans text-[var(--color-text-body)] leading-relaxed mb-2 line-clamp-2">
-                {selectedProject.description}
+              {/* Description with highlighted keywords */}
+              <p className="text-xs md:text-sm font-sans text-[var(--color-text-body)] leading-relaxed mb-2.5">
+                {renderHighlightedText(selectedProject.description, selectedProject.highlights)}
               </p>
 
-              {/* Highlight + services */}
-              <div className="flex flex-col gap-2">
-                <div className="flex items-start gap-1.5">
-                  <span className="text-[9px] font-sans font-semibold text-[var(--color-cyan)] uppercase tracking-wide whitespace-nowrap pt-0.5">
-                    Highlight
+              {/* Services */}
+              <div className="flex flex-wrap gap-1">
+                {selectedProject.services.map((service) => (
+                  <span
+                    key={service}
+                    className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] md:text-[10px] font-sans font-medium bg-[var(--color-off-white)] text-[var(--color-text-muted)] border border-[var(--color-grey-200)]"
+                  >
+                    {service}
                   </span>
-                  <span className="text-[11px] md:text-xs font-sans font-medium text-[var(--color-text-primary)] leading-snug">
-                    {selectedProject.highlight}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-1">
-                  {selectedProject.services.map((service) => (
-                    <span
-                      key={service}
-                      className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] md:text-[10px] font-sans font-medium bg-[var(--color-off-white)] text-[var(--color-text-muted)] border border-[var(--color-grey-200)]"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </div>

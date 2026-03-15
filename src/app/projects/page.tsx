@@ -29,7 +29,7 @@ const projects = [
     services: ["Field Condition Assessment", "Preservation Review", "Restart Feasibility"],
     description:
       "Comprehensive assessment of a mothballed gas-to-liquids facility. Our team disproved nitrogen-preservation claims through field-verified inspection and uncovered hidden failures, providing the client with a credible restart risk profile and cost model.",
-    highlight: "Disproved preservation claims, uncovered hidden failures",
+    highlights: ["mothballed gas-to-liquids facility", "disproved nitrogen-preservation claims", "uncovered hidden failures"],
   },
   {
     title: "Middle East Refinery Rehabilitation",
@@ -39,7 +39,7 @@ const projects = [
     services: ["Government Advisory", "Modular Replacement Strategy", "Feasibility Study"],
     description:
       "Government-advisory engagement for a major refinery rehabilitation programme. Developed modular replacement strategies and provided independent technical assessment supporting capital allocation decisions for facility modernisation.",
-    highlight: "Government advisory, modular replacement strategy",
+    highlights: ["Government-advisory", "modular replacement strategies", "independent technical assessment"],
   },
   {
     title: "Kaombo Norte FPSO",
@@ -49,7 +49,7 @@ const projects = [
     services: ["EPCI Project Management", "Offshore Installation", "Commissioning"],
     description:
       "Upstream offshore EPCI project for TotalEnergies. Contributed to the engineering, procurement, construction, and installation phases of the Kaombo Norte floating production, storage, and offloading vessel, one of the largest deepwater developments in West Africa.",
-    highlight: "TotalEnergies, deepwater FPSO development",
+    highlights: ["TotalEnergies", "largest deepwater developments in West Africa"],
   },
   {
     title: "CORAL Sul FLNG",
@@ -59,7 +59,7 @@ const projects = [
     services: ["EPCI Management", "Floating LNG", "Commissioning Support"],
     description:
       "Engagement on the CORAL Sul floating LNG facility for TotalEnergies, the first deepwater FLNG development in Africa. Supported execution-phase project management and commissioning readiness activities across an international, multi-contractor delivery model.",
-    highlight: "First deepwater FLNG in Africa",
+    highlights: ["first deepwater FLNG development in Africa", "TotalEnergies"],
   },
   {
     title: "Yulin Offshore Wind Farm",
@@ -69,7 +69,7 @@ const projects = [
     services: ["Offshore Wind Development", "Project Management", "Installation Support"],
     description:
       "Offshore wind energy development contributing to the growing renewables portfolio. Delivered project management and installation support for the Yulin wind farm, demonstrating Riviera Energy's capability beyond traditional oil and gas sectors.",
-    highlight: "Renewables sector, offshore wind",
+    highlights: ["renewables portfolio", "beyond traditional oil and gas"],
   },
   {
     title: "Australasia Refinery Assessments",
@@ -79,7 +79,7 @@ const projects = [
     services: ["Full-Facility Assessment", "Asset Integrity", "Restart Readiness"],
     description:
       "Multiple full-facility assessments for refineries ranging from 80–300 kbpd capacity across Australasia. Partnered with Tier 1 operators including BP, Shell, and Caltex to deliver verified asset condition reports, restart risk profiles, and credible cost/schedule ranges.",
-    highlight: "BP, Shell, Caltex, 80–300 kbpd facilities",
+    highlights: ["80–300 kbpd capacity", "BP, Shell, and Caltex", "verified asset condition reports"],
   },
 ] as const;
 
