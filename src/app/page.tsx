@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-24 sm:pt-40 sm:pb-32 md:pt-48 md:pb-40 lg:pb-48">
+      <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-32 sm:pt-40 sm:pb-40 md:pt-48 md:pb-48 lg:pb-56">
         <VideoBackground />
         <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#031050]/60 via-[#031050]/40 to-[#031050]/80" />
 
@@ -133,7 +133,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* Solutions */}
-      <section id="solutions" className="relative py-16 sm:py-24 md:py-32 bg-white overflow-hidden">
+      <section id="solutions" className="relative py-12 sm:py-16 md:py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
@@ -185,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* Why Riviera */}
-      <section className="relative py-16 sm:py-24 md:py-32 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
@@ -274,7 +274,7 @@ export default function Home() {
       </SectionWrapper>
 
       {/* CTA Band */}
-      <section className="relative py-14 sm:py-20 md:py-28 bg-[var(--color-indigo)] text-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <ScrollReveal>
