@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Merriweather, Manrope, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { LinkedInFloat } from "@/components/ui/LinkedInFloat";
 import "./globals.css";
 
 const merriweather = Merriweather({
@@ -98,6 +99,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <LinkedInFloat />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -125,7 +127,7 @@ export default function RootLayout({
                     "telephone": "+65-8923-9798",
                     "contactType": "customer service",
                   },
-                  "sameAs": [],
+                  "sameAs": ["https://www.linkedin.com/company/rivieraenergy"],
                 },
                 {
                   "@type": "WebSite",
