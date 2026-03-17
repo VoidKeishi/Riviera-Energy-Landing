@@ -2,6 +2,7 @@ import { GradientMesh } from '@/components/ui/GradientMesh';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Button } from '@/components/ui/Button';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { VideoBackground } from '@/components/ui/VideoBackground';
 import { StatCounter } from '@/components/home/StatCounter';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -76,18 +77,8 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative flex items-center justify-center overflow-hidden bg-[#031050] pt-36 pb-24 sm:pt-40 sm:pb-32 md:pt-48 md:pb-40 lg:pb-48">
-        <GradientMesh variant="dark" />
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-bg.jpg"
-            alt="Offshore energy platform at sea"
-            fill
-            priority
-            className="object-cover opacity-40"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#031050]/80 via-[#031050]/60 to-[#031050]" />
-        </div>
+        <VideoBackground />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#031050]/60 via-[#031050]/40 to-[#031050]/80" />
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal delay={300}>
