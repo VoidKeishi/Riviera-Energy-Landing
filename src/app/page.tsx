@@ -65,11 +65,29 @@ const stats = [
 ] as const;
 
 const partners = [
-  'ExxonMobil', 'Shell', 'Santos', 'BW Offshore', 'MODEC', 'IKM', 'TechnipFMC',
-  'Nabors', 'COSCO Shipping', 'Cyan Renewables', 'Twinza', 'Argo Marine',
-  'SOFEC', 'Yinson Production', 'IKM', 'UTEC Geo-services',
-  'Red Rock Oilfield Services', 'OMS Group', 'LD Armateurs', 'LD Travocean',
-  'SafeLink', 'AOS Offshore', 'Zamil Offshore', 'MODEC', 'Dana Petroleum',
+  { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845 },
+  { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951 },
+  { name: 'Santos', src: '/images/partner-logo/santos.png', width: 990, height: 236 },
+  { name: 'BW Offshore', src: '/images/partner-logo/bwoffshore.png', width: 2000, height: 506 },
+  { name: 'MODEC', src: '/images/partner-logo/modec.png', width: 640, height: 154 },
+  { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000 },
+  { name: 'Nabors', src: '/images/partner-logo/nabors.png', width: 1528, height: 291 },
+  { name: 'COSCO Shipping', src: '/images/partner-logo/coscoshipping.png', width: 1581, height: 1007 },
+  { name: 'Cyan Renewables', src: '/images/partner-logo/cyanrenewables.png', width: 2000, height: 2000 },
+  { name: 'Twinza', src: '/images/partner-logo/twinza.png', width: 500, height: 104 },
+  { name: 'Argo Marine', src: '/images/partner-logo/argomarine.png', width: 1188, height: 344 },
+  { name: 'SOFEC', src: '/images/partner-logo/sofec.png', width: 400, height: 104 },
+  { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280 },
+  { name: 'UTEC Geo-services', src: '/images/partner-logo/utecgeoservices.png', width: 300, height: 90 },
+  { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627 },
+  { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315 },
+  { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800 },
+  { name: 'LD Armateurs', src: '/images/partner-logo/ldarmateurs.png', width: 500, height: 405 },
+  { name: 'LD Travocean', src: '/images/partner-logo/ldtravocean.png', width: 2493, height: 2245 },
+  { name: 'SafeLink', src: '/images/partner-logo/safelink.png', width: 960, height: 180 },
+  { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336 },
+  { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700 },
+  { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386 },
 ] as const;
 
 export default function Home() {
@@ -257,15 +275,19 @@ export default function Home() {
 
         <ScrollReveal delay={200}>
           <div className="mt-16 relative overflow-hidden">
-            <div className="flex animate-scroll-x gap-12">
-              {[...partners, ...partners].map((name, i) => (
+            <div className="flex animate-scroll-x gap-8">
+              {[...partners, ...partners].map((partner, i) => (
                 <div
-                  key={`${name}-${i}`}
-                  className="flex-shrink-0 flex items-center justify-center px-6 py-4 rounded-lg border border-[var(--color-grey-100)] bg-[var(--color-off-white)]"
+                  key={`${partner.name}-${i}`}
+                  className="flex-shrink-0 flex items-center justify-center h-8 min-w-[80px] px-4"
                 >
-                  <span className="text-sm font-sans font-semibold text-[var(--color-text-muted)] whitespace-nowrap">
-                    {name}
-                  </span>
+                  <Image
+                    src={partner.src}
+                    alt={partner.name}
+                    width={Math.round((partner.width / partner.height) * 32)}
+                    height={32}
+                    className="h-8 w-auto object-contain"
+                  />
                 </div>
               ))}
             </div>
