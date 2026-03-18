@@ -5,9 +5,18 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { GradientMesh } from '@/components/ui/GradientMesh';
 
 export const metadata: Metadata = {
-  title: 'Strategic Project Consultancy | Riviera Energy',
+  title: 'Strategic Project Consultancy',
   description:
     'Execution-led advisory services for complex energy projects — from early-stage concept and design through execution and operational support.',
+  alternates: {
+    canonical: '/solutions/consultancy',
+  },
+  openGraph: {
+    title: 'Strategic Project Consultancy | Riviera Energy',
+    description:
+      'Execution-led advisory services for complex energy projects — from early-stage concept and design through execution and operational support.',
+    url: 'https://www.riviera-energy.co/solutions/consultancy',
+  },
 };
 
 export default function ConsultancyPage() {

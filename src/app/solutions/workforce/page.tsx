@@ -7,9 +7,18 @@ import { GradientMesh } from '@/components/ui/GradientMesh';
 import { RecruitmentTimeline } from '@/components/workforce/RecruitmentTimeline';
 
 export const metadata: Metadata = {
-  title: 'Global Workforce & Mobility Solutions | Riviera Energy',
+  title: 'Global Workforce & Mobility Solutions',
   description:
     'Integrated delivery and compliant global mobilisation of specialist offshore capability for survey, ROV, inspection, and commissioning activities.',
+  alternates: {
+    canonical: '/solutions/workforce',
+  },
+  openGraph: {
+    title: 'Global Workforce & Mobility Solutions | Riviera Energy',
+    description:
+      'Integrated delivery and compliant global mobilisation of specialist offshore capability for survey, ROV, inspection, and commissioning activities.',
+    url: 'https://www.riviera-energy.co/solutions/workforce',
+  },
 };
 
 const services = [

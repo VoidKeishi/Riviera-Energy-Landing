@@ -62,21 +62,12 @@ export const metadata: Metadata = {
     siteName: "Riviera Energy",
     locale: "en_SG",
     type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Riviera Energy",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Riviera Energy - Where Partnership Meets Performance",
     description:
       "Engineering and asset integrity consultancy delivering high-confidence project outcomes across the global energy sector.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,

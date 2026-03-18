@@ -5,9 +5,18 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { GradientMesh } from '@/components/ui/GradientMesh';
 
 export const metadata: Metadata = {
-  title: 'Commissioning & Operational Readiness | Riviera Energy',
+  title: 'Commissioning & Operational Readiness',
   description:
     'Pre-commissioning, commissioning, and operational readiness services. Defined technical capability aligned to specific project scopes.',
+  alternates: {
+    canonical: '/solutions/commissioning',
+  },
+  openGraph: {
+    title: 'Commissioning & Operational Readiness | Riviera Energy',
+    description:
+      'Pre-commissioning, commissioning, and operational readiness services. Defined technical capability aligned to specific project scopes.',
+    url: 'https://www.riviera-energy.co/solutions/commissioning',
+  },
 };
 
 export default function CommissioningPage() {

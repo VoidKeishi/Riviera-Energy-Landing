@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { GradientMesh } from '@/components/ui/GradientMesh';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Button } from '@/components/ui/Button';
@@ -6,6 +7,21 @@ import { VideoBackground } from '@/components/ui/VideoBackground';
 import { StatCounter } from '@/components/home/StatCounter';
 import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Riviera Energy - Where Partnership Meets Performance',
+  description:
+    'Riviera Energy delivers commissioning, strategic consultancy, and global workforce solutions across the energy sector. 50+ years combined expertise, 100K+ talent database, headquartered in Singapore.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Riviera Energy - Where Partnership Meets Performance',
+    description:
+      'Engineering and asset integrity consultancy delivering commissioning, strategic advisory, and workforce solutions across the global energy sector.',
+    url: 'https://www.riviera-energy.co',
+  },
+};
 
 const solutions = [
   {
@@ -89,6 +105,8 @@ const partners = [
   { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700 },
   { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386 },
 ] as const;
+
+const partnersDoubled = [...partners, ...partners];
 
 export default function Home() {
   return (
@@ -276,7 +294,7 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <div className="mt-16 relative overflow-hidden">
             <div className="flex animate-scroll-x gap-8">
-              {[...partners, ...partners].map((partner, i) => (
+              {partnersDoubled.map((partner, i) => (
                 <div
                   key={`${partner.name}-${i}`}
                   className="flex-shrink-0 flex items-center justify-center h-8 min-w-[80px] px-4"
