@@ -81,8 +81,8 @@ const stats = [
 ] as const;
 
 const partners = [
-  { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845 },
-  { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951 },
+  { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845, tall: true },
+  { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951, tall: true },
   { name: 'BW Offshore', src: '/images/partner-logo/bwoffshore.png', width: 2000, height: 506 },
   { name: 'MODEC', src: '/images/partner-logo/modec.png', width: 640, height: 154 },
   { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000, tall: true },
@@ -92,18 +92,18 @@ const partners = [
   { name: 'SOFEC', src: '/images/partner-logo/sofec.png', width: 400, height: 104 },
   { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280, tall: true },
   { name: 'UTEC Geo-services', src: '/images/partner-logo/utecgeoservices.png', width: 300, height: 90 },
-  { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627 },
-  { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315 },
-  { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800 },
-  { name: 'LD Armateurs', src: '/images/partner-logo/ldarmateurs.png', width: 500, height: 405 },
-  { name: 'LD Travocean', src: '/images/partner-logo/ldtravocean.png', width: 2493, height: 2245 },
+  { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627, renderH: 58 },
+  { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315, tall: true },
+  { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800, renderH: 58 },
+  { name: 'LD Armateurs', src: '/images/partner-logo/ldarmateurs.png', width: 500, height: 405, tall: true },
   { name: 'SafeLink', src: '/images/partner-logo/safelink.png', width: 960, height: 180 },
-  { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336 },
-  { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700 },
-  { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386 },
-  { name: 'Apogee', src: '/images/partner-logo/apogee.png', width: 1500, height: 366 },
-  { name: 'Yinson', src: '/images/partner-logo/yinson.png', width: 296, height: 181 },
-  { name: 'Altrad', src: '/images/partner-logo/altrad.png', width: 2048, height: 2048 },
+  { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336, tall: true },
+  { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700, tall: true },
+  { name: 'LD Travocean', src: '/images/partner-logo/ldtravocean.png', width: 2493, height: 2245, renderH: 56 },
+  { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386, renderH: 58 },
+  { name: 'Apogee', src: '/images/partner-logo/apogee.png', width: 1500, height: 366, darkBg: true },
+  { name: 'Yinson', src: '/images/partner-logo/yinson.png', width: 296, height: 181, tall: true },
+  { name: 'Altrad', src: '/images/partner-logo/altrad.png', width: 2048, height: 2048, tall: true },
 ] as const;
 
 const partnersDoubled = [...partners, ...partners];
@@ -288,9 +288,9 @@ export default function Home() {
 
         <ScrollReveal delay={200}>
           <div className="mt-16 relative overflow-hidden">
-            <div className="flex animate-scroll-x gap-8">
+            <div className="flex w-max animate-scroll-x gap-8">
               {partnersDoubled.map((partner, i) => {
-                const h = 'tall' in partner && partner.tall ? 48 : 32;
+                const h = 'renderH' in partner && partner.renderH ? partner.renderH : 'tall' in partner && partner.tall ? 48 : 32;
                 return (
                   <div
                     key={`${partner.name}-${i}`}
@@ -302,7 +302,7 @@ export default function Home() {
                       alt={partner.name}
                       width={Math.round((partner.width / partner.height) * h)}
                       height={h}
-                      className="w-auto object-contain"
+                      className={`w-auto object-contain ${'darkBg' in partner && partner.darkBg ? 'bg-gray-800 rounded-md px-3 py-1.5' : ''}`}
                       style={{ height: h }}
                     />
                   </div>
