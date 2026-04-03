@@ -95,7 +95,6 @@ const partners = [
   { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627, renderH: 58 },
   { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315, tall: true },
   { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800, renderH: 58 },
-  { name: 'SafeLink', src: '/images/partner-logo/safelink.png', width: 960, height: 180 },
   { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336, tall: true },
   { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700, tall: true },
   { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386, renderH: 58 },
