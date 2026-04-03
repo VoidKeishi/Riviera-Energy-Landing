@@ -22,64 +22,74 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: "West Texas GTL Assessment",
-    location: "Texas, Americas",
+    title: "Louis Dreyfus / Subsea ROV Plough",
+    location: "Colombo, Sri Lanka",
     sector: "Oil & Gas",
-    coordinates: [31.9, -102.1],
-    services: ["Field Condition Assessment", "Preservation Review", "Restart Feasibility"],
+    coordinates: [6.9271, 79.8612],
+    services: ["Specialist Commissioning Personnel", "Mechanical & Electrical Scope", "Subsea Operations"],
     description:
-      "Comprehensive assessment of a mothballed gas-to-liquids facility. Our team disproved nitrogen-preservation claims through field-verified inspection and uncovered hidden failures, providing the client with a credible restart risk profile and cost model.",
-    highlights: ["mothballed gas-to-liquids facility", "disproved nitrogen-preservation claims", "uncovered hidden failures"],
+      "Deployment of specialist commissioning personnel to support mechanical, electrical, and instrumentation scope across subsea operations. Riviera Energy supported the decommissioning and recommissioning of a Subsea Tethered Plough, ensuring system readiness, technical continuity, and efficient execution across multiple project phases.",
+    highlights: ["Subsea Tethered Plough", "decommissioning and recommissioning", "multiple project phases"],
   },
   {
-    title: "Middle East Refinery Rehabilitation",
-    location: "Middle East",
+    title: "Yinson / FPSO Abigail-Joseph Commissioning",
+    location: "Singapore",
     sector: "Oil & Gas",
-    coordinates: [25.3, 51.5],
-    services: ["Government Advisory", "Modular Replacement Strategy", "Feasibility Study"],
+    coordinates: [1.3521, 103.8198],
+    services: ["Commissioning Management", "Inspection & Testing", "O&M Personnel Provision"],
     description:
-      "Government-advisory engagement for a major refinery rehabilitation programme. Developed modular replacement strategies and provided independent technical assessment supporting capital allocation decisions for facility modernisation.",
-    highlights: ["Government-advisory", "modular replacement strategies", "independent technical assessment"],
+      "Deployment of an integrated commissioning team to support completion, commissioning, and start-up activities for the FPSO Abigail-Joseph. Riviera Energy contributed to commissioning management planning, inspection, and testing execution ensuring a smooth transition from conversion to commissioning phase. Support extended to O&M personnel provision during sail-away, enabling operational readiness and continuity.",
+    highlights: ["FPSO Abigail-Joseph", "commissioning management planning", "operational readiness and continuity"],
   },
   {
-    title: "Kaombo Norte FPSO",
-    location: "Angola",
+    title: "BP America / Atlantis Topsides Commissioning",
+    location: "South Korea",
     sector: "Oil & Gas",
-    coordinates: [-7.5, 12.5],
-    services: ["EPCI Project Management", "Offshore Installation", "Commissioning"],
+    coordinates: [35.1796, 129.0756],
+    services: ["Commissioning Services", "Electrical Systems", "Oil & Gas Processing"],
     description:
-      "Upstream offshore EPCI project for TotalEnergies. Contributed to the engineering, procurement, construction, and installation phases of the Kaombo Norte floating production, storage, and offloading vessel, one of the largest deepwater developments in West Africa.",
-    highlights: ["TotalEnergies", "largest deepwater developments in West Africa"],
+      "Provision of commissioning services to support production, compression, and power generation modules for the Atlantis Topsides project. Riviera Energy deployed specialist personnel across electrical and oil & gas processing systems, supporting commissioning execution and ensuring system readiness for offshore operations.",
+    highlights: ["Atlantis Topsides", "production, compression, and power generation modules", "system readiness for offshore operations"],
   },
   {
-    title: "CORAL Sul FLNG",
-    location: "Mozambique",
+    title: "ExxonMobil / Kizomba A/B Integrated Commissioning",
+    location: "Angola / South Korea",
     sector: "Oil & Gas",
-    coordinates: [-14.0, 40.5],
-    services: ["EPCI Management", "Floating LNG", "Commissioning Support"],
+    coordinates: [-8.8383, 13.2344],
+    services: ["Integrated Commissioning", "Start-Up Support", "Subsea & FPSO Systems"],
     description:
-      "Engagement on the CORAL Sul floating LNG facility for TotalEnergies, the first deepwater FLNG development in Africa. Supported execution-phase project management and commissioning readiness activities across an international, multi-contractor delivery model.",
-    highlights: ["first deepwater FLNG development in Africa", "TotalEnergies"],
+      "Provision of integrated commissioning and start-up support for the Kizomba A/B development, involving surface wellhead platforms and subsea wells tied back to an FPSO. Riviera Energy supported execution across offshore systems, contributing to coordinated start-up activities and ensuring operational readiness across interconnected assets.",
+    highlights: ["Kizomba A/B", "surface wellhead platforms and subsea wells", "operational readiness across interconnected assets"],
   },
   {
-    title: "Yulin Offshore Wind Farm",
-    location: "Asia",
-    sector: "Renewables",
-    coordinates: [21.4, 109.5],
-    services: ["Offshore Wind Development", "Project Management", "Installation Support"],
+    title: "Lloyds Ship Loader Commissioning & Ex Inspection",
+    location: "South Korea / Australia",
+    sector: "Oil & Gas",
+    coordinates: [34.7936, 126.3927],
+    services: ["PLC/SCADA Commissioning", "Ex Inspection", "Hazardous Area Certification"],
     description:
-      "Offshore wind energy development contributing to the growing renewables portfolio. Delivered project management and installation support for the Yulin wind farm, demonstrating Riviera Energy's capability beyond traditional oil and gas sectors.",
-    highlights: ["renewables portfolio", "beyond traditional oil and gas"],
+      "Provision of commissioning and Ex inspection services for a PLC/SCADA-controlled ship loader system. Riviera Energy supported commissioning activities at Mokpo, South Korea, followed by Ex inspection and certification works in Western Port, Australia, ensuring compliance with hazardous area standards and readiness for operational deployment.",
+    highlights: ["PLC/SCADA-controlled ship loader", "Ex inspection and certification", "hazardous area standards"],
   },
   {
-    title: "Australasia Refinery Assessments",
-    location: "Australia",
+    title: "First Quantum / Cobre Power Station Commissioning",
+    location: "Panama",
     sector: "Oil & Gas",
-    coordinates: [-33.8, 151.2],
-    services: ["Full-Facility Assessment", "Asset Integrity", "Restart Readiness"],
+    coordinates: [9.0, -79.5],
+    services: ["Commissioning Services", "Preservation", "Mooring System Study"],
     description:
-      "Multiple full-facility assessments for refineries ranging from 80–300 kbpd capacity across Australasia. Partnered with Tier 1 operators including BP, Shell, and Caltex to deliver verified asset condition reports, restart risk profiles, and credible cost/schedule ranges.",
-    highlights: ["80–300 kbpd capacity", "BP, Shell, and Caltex", "verified asset condition reports"],
+      "Provision of commissioning services alongside preservation and spread mooring system study for the Cobre Power Station project. Riviera Energy supported commissioning execution while contributing to mooring system evaluation, ensuring asset integrity, preservation effectiveness, and readiness for operational deployment.",
+    highlights: ["Cobre Power Station", "spread mooring system study", "asset integrity, preservation effectiveness"],
+  },
+  {
+    title: "Sembcorp / ME&I Commissioning Support",
+    location: "Singapore",
+    sector: "Oil & Gas",
+    coordinates: [1.2649, 103.8225],
+    services: ["Mechanical Commissioning", "Electrical & Instrumentation", "Operational Support"],
+    description:
+      "Provision of mechanical, electrical, and instrumentation (ME&I) commissioning expertise to support project execution in Singapore. Riviera Energy deployed specialist personnel across commissioning and operational support functions, ensuring system readiness and smooth transition into operational phases.",
+    highlights: ["ME&I commissioning expertise", "specialist personnel", "smooth transition into operational phases"],
   },
 ] as const;
 
@@ -257,6 +267,11 @@ export default function ProjectsPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <ProjectExplorer projects={projects} />
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <p className="mt-4 max-w-md text-left text-[11px] font-sans italic leading-relaxed text-[var(--color-text-muted)]">
+              *The portfolio featured herein is intentionally selective, offering a curated glimpse into the breadth of our management experience. It does not represent an exhaustive account of all projects undertaken.
+            </p>
           </ScrollReveal>
         </div>
       </section>

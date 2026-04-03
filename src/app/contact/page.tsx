@@ -176,7 +176,7 @@ export default function ContactPage() {
             <div className="rounded-xl overflow-hidden shadow-[0_4px_24px_-6px_rgba(8,1,69,0.08)] border border-[var(--color-grey-100)]">
               <iframe
                 title="Riviera Energy Singapore Office — 152 Beach Road, Gateway East"
-                src="https://maps.google.com/maps?q=Gateway+East,+152+Beach+Road,+Singapore+189721&t=&z=16&ie=UTF8&iwloc=B&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.793887773247!2d103.85632397496575!3d1.298410598689257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190a583b3165%3A0xf0f0af5c187de8bc!2sRiviera%20Energy%20Pte%20Ltd!5e0!3m2!1sen!2ssg!4v1775097917406!5m2!1sen!2ssg"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}

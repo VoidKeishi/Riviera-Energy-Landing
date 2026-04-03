@@ -49,8 +49,8 @@ const regions = [
   { name: "Americas", label: null },
   { name: "Europe", label: null },
   { name: "Middle East", label: null },
-  { name: "Africa", label: null },
   { name: "Australia", label: null },
+  { name: "Brazil", label: null },
 ] as const;
 
 export default function AboutPage() {
@@ -108,9 +108,9 @@ export default function AboutPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-indigo)]/80 via-transparent to-transparent" />
                   <div className="absolute inset-0 flex items-end p-8">
                     <div className="text-white">
-                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">3+</div>
+                      <div className="font-display text-5xl font-extrabold energy-gradient-text-on-dark">50+</div>
                       <div className="mt-1 text-sm font-sans font-medium text-white/70 uppercase tracking-wide">
-                        Decades of Excellence
+                        Years of Excellence
                       </div>
                     </div>
                   </div>
@@ -166,18 +166,78 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
+      {/* Governance */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <ScrollReveal>
+              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
+                Governance
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
+                How We Operate
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <p className="mt-6 text-base font-sans leading-relaxed text-[var(--color-text-body)]">
+                Riviera Energy operates with a strong commitment to integrity, accountability, and responsible business practices.
+                Our governance framework is supported by clear policies and procedures that guide how we work, make decisions,
+                and engage with clients, partners, and personnel.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <ScrollReveal delay={300}>
+            <div className="mt-10 max-w-4xl mx-auto">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2.5">
+                {[
+                  "Alcohol & Drug Policy",
+                  "Anti-Bribery and Corruption Policy",
+                  "Anti-Bullying Policy",
+                  "Code of Conduct and Ethics Policy",
+                  "Corporate Social & Sustainability Policy",
+                  "Equal Opportunity Policy",
+                  "Human Rights Policy",
+                  "Inclusion and Diversity Policy",
+                  "Quality Policy",
+                  "Sexual Harassment Policy",
+                  "Work Health & Safety and Environment Policy",
+                ].map((policy) => (
+                  <li key={policy} className="flex items-start gap-2 text-sm font-sans text-[var(--color-text-body)]">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-energy-start)] flex-shrink-0" />
+                    {policy}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={400}>
+            <p className="mt-8 text-center text-sm font-sans text-[var(--color-text-muted)]">
+              For more information or to request access to our policies, please contact us at{" "}
+              <a
+                href="mailto:operations@riviera-energy.co"
+                className="text-[var(--color-cyan)] hover:underline transition-colors duration-[var(--duration-fast)]"
+              >
+                operations@riviera-energy.co
+              </a>
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Global Reach */}
-      <section className="relative py-8 md:py-10 bg-white overflow-hidden">
+      <section className="relative py-12 md:py-16 bg-[var(--color-off-white)] overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Centered title — compact */}
           <ScrollReveal>
-            <div className="text-center mb-5">
-              <p className="text-xs font-sans font-medium uppercase tracking-wider text-[var(--color-cyan)] mb-1">
-                Where We Operate
-              </p>
+            <div className="text-center mb-8">
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
                 Global Reach
               </h2>
+              <div className="mt-4 mx-auto w-12 h-0.5 rounded-full bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)]" />
             </div>
           </ScrollReveal>
 
@@ -204,7 +264,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <SectionWrapper background="off-white">
+      <SectionWrapper background="white">
         <div className="text-center max-w-3xl mx-auto">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">

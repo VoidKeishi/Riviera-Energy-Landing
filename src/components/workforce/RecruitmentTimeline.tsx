@@ -8,10 +8,6 @@ const steps = [
     detail: 'Building a comprehensive understanding of your requirements, timeline, and team fit.',
   },
   {
-    label: 'Ad Copy',
-    detail: 'Crafting compelling positioning to attract the right calibre of specialist.',
-  },
-  {
     label: 'Talent Search',
     detail: 'Activating our 100K+ global database and recruiter network.',
   },
@@ -24,7 +20,7 @@ const steps = [
     detail: 'Testing, verification, and presenting only the strongest candidates.',
   },
   {
-    label: 'References',
+    label: 'Clearance',
     detail: 'Full verification of credentials, experience, and regulatory compliance.',
   },
   {
@@ -39,17 +35,17 @@ export function RecruitmentTimeline() {
   return (
     <div className="relative">
       {/* Connecting line — desktop */}
-      <div className="hidden lg:block absolute top-6 left-[7%] right-[7%] h-px bg-white/20" />
+      <div className="hidden lg:block absolute top-6 left-[8%] right-[8%] h-px bg-white/20" />
 
       {/* Progress fill line */}
       {active !== null && (
         <div
-          className="hidden lg:block absolute top-6 left-[7%] h-px bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)] transition-all duration-500 ease-[var(--ease-flow)]"
-          style={{ width: `${(active / (steps.length - 1)) * 86}%` }}
+          className="hidden lg:block absolute top-6 left-[8%] h-px bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)] transition-all duration-500 ease-[var(--ease-flow)]"
+          style={{ width: `${(active / (steps.length - 1)) * 84}%` }}
         />
       )}
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-y-8 gap-x-4">
+      <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-8 gap-x-6">
         {steps.map((step, i) => {
           const isActive = active === i;
 
@@ -67,7 +63,7 @@ export function RecruitmentTimeline() {
                   relative z-10 mb-3 transition-all duration-[var(--duration-base)] ease-[var(--ease-flow)]
                   ${isActive
                     ? 'energy-gradient border-2 border-[var(--color-energy-end)] shadow-[0_0_24px_rgba(89,218,227,0.35)] scale-110'
-                    : 'bg-[#0c1d5a] border-2 border-white/25 group-hover:border-white/40'
+                    : 'bg-[var(--color-indigo)] border-2 border-white/30 group-hover:border-[var(--color-energy-end)]/60'
                   }
                 `}
               >

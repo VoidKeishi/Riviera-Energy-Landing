@@ -73,7 +73,7 @@ export function HeaderClient() {
               alt="Riviera Energy"
               width={300}
               height={300}
-              className="h-16 w-auto"
+              className="h-20 w-auto"
               priority
             />
           </Link>

@@ -83,17 +83,14 @@ const stats = [
 const partners = [
   { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845 },
   { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951 },
-  { name: 'Santos', src: '/images/partner-logo/santos.png', width: 990, height: 236 },
   { name: 'BW Offshore', src: '/images/partner-logo/bwoffshore.png', width: 2000, height: 506 },
   { name: 'MODEC', src: '/images/partner-logo/modec.png', width: 640, height: 154 },
-  { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000 },
+  { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000, tall: true },
   { name: 'Nabors', src: '/images/partner-logo/nabors.png', width: 1528, height: 291 },
-  { name: 'COSCO Shipping', src: '/images/partner-logo/coscoshipping.png', width: 1581, height: 1007 },
-  { name: 'Cyan Renewables', src: '/images/partner-logo/cyanrenewables.png', width: 2000, height: 2000 },
+  { name: 'Cyan Renewables', src: '/images/partner-logo/cyanrenewables.png', width: 2000, height: 2000, tall: true },
   { name: 'Twinza', src: '/images/partner-logo/twinza.png', width: 500, height: 104 },
-  { name: 'Argo Marine', src: '/images/partner-logo/argomarine.png', width: 1188, height: 344 },
   { name: 'SOFEC', src: '/images/partner-logo/sofec.png', width: 400, height: 104 },
-  { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280 },
+  { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280, tall: true },
   { name: 'UTEC Geo-services', src: '/images/partner-logo/utecgeoservices.png', width: 300, height: 90 },
   { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627 },
   { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315 },
@@ -104,6 +101,9 @@ const partners = [
   { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336 },
   { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700 },
   { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386 },
+  { name: 'Apogee', src: '/images/partner-logo/apogee.png', width: 1500, height: 366 },
+  { name: 'Yinson', src: '/images/partner-logo/yinson.png', width: 296, height: 181 },
+  { name: 'Altrad', src: '/images/partner-logo/altrad.png', width: 2048, height: 2048 },
 ] as const;
 
 const partnersDoubled = [...partners, ...partners];
@@ -280,12 +280,7 @@ export default function Home() {
       <SectionWrapper background="white">
         <div className="text-center max-w-3xl mx-auto">
           <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Our Partners
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
               Trusted By Industry Leaders
             </h2>
           </ScrollReveal>
@@ -294,20 +289,25 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <div className="mt-16 relative overflow-hidden">
             <div className="flex animate-scroll-x gap-8">
-              {partnersDoubled.map((partner, i) => (
-                <div
-                  key={`${partner.name}-${i}`}
-                  className="flex-shrink-0 flex items-center justify-center h-8 min-w-[80px] px-4"
-                >
-                  <Image
-                    src={partner.src}
-                    alt={partner.name}
-                    width={Math.round((partner.width / partner.height) * 32)}
-                    height={32}
-                    className="h-8 w-auto object-contain"
-                  />
-                </div>
-              ))}
+              {partnersDoubled.map((partner, i) => {
+                const h = 'tall' in partner && partner.tall ? 48 : 32;
+                return (
+                  <div
+                    key={`${partner.name}-${i}`}
+                    className="flex-shrink-0 flex items-center justify-center min-w-[80px] px-4"
+                    style={{ height: 48 }}
+                  >
+                    <Image
+                      src={partner.src}
+                      alt={partner.name}
+                      width={Math.round((partner.width / partner.height) * h)}
+                      height={h}
+                      className="w-auto object-contain"
+                      style={{ height: h }}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </ScrollReveal>

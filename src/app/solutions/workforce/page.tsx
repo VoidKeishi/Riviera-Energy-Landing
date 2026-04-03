@@ -45,7 +45,7 @@ const services = [
   {
     title: 'Travel & Logistics',
     description:
-      'Full travel and logistics coordination — accommodations, flights, and wellbeing — at competitive fares with trusted partners.',
+      'Full travel and logistics execution including visa coordination, flights, accommodations, and workforce wellbeing - enabling seamless, compliant global deployment through trusted partners.',
   },
   {
     title: 'Diversity Hiring',
@@ -153,7 +153,7 @@ export default function WorkforcePage() {
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                Recruitment Journey
+                Talent Mobilisation Framework
               </h2>
             </ScrollReveal>
           </div>
@@ -174,7 +174,9 @@ export default function WorkforcePage() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <p className="mt-6 text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-              Whether you need contract specialists, permanent hires, or full crew management — our team is ready.
+              Whether you need contract specialists, permanent hires, or full crew management
+              <br />
+              — our team is ready.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={200}>

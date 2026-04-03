@@ -52,7 +52,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-sans font-semibold tracking-wide uppercase text-[var(--color-text-on-dark-muted)]">
+            <h3 className="text-sm font-sans font-bold tracking-wide uppercase text-white">
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
@@ -60,7 +60,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-white"
+                    className="text-sm text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
                   >
                     {link.label}
                   </Link>
@@ -71,7 +71,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-sans font-semibold tracking-wide uppercase text-[var(--color-text-on-dark-muted)]">
+            <h3 className="text-sm font-sans font-bold tracking-wide uppercase text-white">
               Contact
             </h3>
             <address className="mt-4 space-y-3 text-sm not-italic leading-relaxed text-[var(--color-text-on-dark-muted)]">
@@ -83,7 +83,7 @@ export function Footer() {
               <p>
                 <a
                   href="tel:+6589239798"
-                  className="transition-colors duration-[var(--duration-fast)] hover:text-white"
+                  className="transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
                 >
                   (+65) 8923 9798
                 </a>
@@ -91,7 +91,7 @@ export function Footer() {
               <p>
                 <a
                   href="mailto:operations@riviera-energy.co"
-                  className="transition-colors duration-[var(--duration-fast)] hover:text-white"
+                  className="transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
                 >
                   operations@riviera-energy.co
                 </a>

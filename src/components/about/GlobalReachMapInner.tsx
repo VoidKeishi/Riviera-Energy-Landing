@@ -37,22 +37,15 @@ const locations: Location[] = [
   {
     name: 'Europe',
     label: 'Regional Operations',
-    position: [57.15, -2.09],
-    city: 'Aberdeen, United Kingdom',
+    position: [48.8566, 2.3522],
+    city: 'Paris, France',
     isHQ: false,
   },
   {
     name: 'Middle East',
-    label: 'Regional Operations',
+    label: '',
     position: [25.2, 55.27],
     city: 'Dubai, UAE',
-    isHQ: false,
-  },
-  {
-    name: 'Africa',
-    label: 'Regional Operations',
-    position: [6.52, 3.38],
-    city: 'Lagos, Nigeria',
     isHQ: false,
   },
   {
@@ -60,6 +53,13 @@ const locations: Location[] = [
     label: 'Regional Operations',
     position: [-31.95, 115.86],
     city: 'Perth, Western Australia',
+    isHQ: false,
+  },
+  {
+    name: 'Brazil',
+    label: '',
+    position: [-22.9068, -43.1729],
+    city: 'Rio de Janeiro, Brazil',
     isHQ: false,
   },
 ];
