@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: "Louis Dreyfus / Subsea ROV Plough",
+    title: "French Shipmanager / Subsea ROV Plough",
     location: "Colombo, Sri Lanka",
     sector: "Oil & Gas",
     coordinates: [6.9271, 79.8612],
@@ -269,7 +269,7 @@ export default function ProjectsPage() {
             <ProjectExplorer projects={projects} />
           </ScrollReveal>
           <ScrollReveal delay={100}>
-            <p className="mt-4 max-w-md text-left text-[11px] font-sans italic leading-relaxed text-[var(--color-text-muted)]">
+            <p className="mt-6 text-center text-xs font-sans italic leading-relaxed text-[var(--color-text-muted)]">
               *The portfolio featured herein is intentionally selective, offering a curated glimpse into the breadth of our management experience. It does not represent an exhaustive account of all projects undertaken.
             </p>
           </ScrollReveal>

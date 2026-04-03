@@ -128,6 +128,72 @@
   animation-play-state: paused;
 }
 
+/* ============================================
+   Legal / Policy Page Prose
+   ============================================ */
+
+.prose-legal h2 {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal h2:first-child {
+  margin-top: 0;
+}
+
+.prose-legal p {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-body);
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.prose-legal ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--color-text-body);
+  margin-bottom: 0.25rem;
+}
+
+.prose-legal ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-energy-start);
+}
+
+.prose-legal a {
+  color: var(--color-cyan);
+  transition: color var(--duration-fast) ease;
+}
+
+.prose-legal a:hover {
+  text-decoration: underline;
+}
+
+.prose-legal strong {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
 
 /* ============================================
    Global Reach Map — Markers & Popups

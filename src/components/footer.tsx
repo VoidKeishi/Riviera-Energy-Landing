@@ -104,11 +104,28 @@ export function Footer() {
         <div className="mt-12 sm:mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-xs text-[var(--color-text-on-dark-muted)]">
             &copy; {new Date().getFullYear()} Riviera Energy Pte Ltd. All
-            rights reserved.
+            rights reserved. &middot; Company No. 201438405R &middot; EA Licence No. 16C8003
           </p>
-          <p className="text-xs text-[var(--color-text-on-dark-muted)]">
-            Company No. 201438405R &middot; Employment Agency Licence No. 16C8003
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link
+              href="/privacy-policy"
+              className="text-xs text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-use"
+              className="text-xs text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
+            >
+              Terms of Use
+            </Link>
+            <Link
+              href="/data-protection-notice"
+              className="text-xs text-[var(--color-text-on-dark-muted)] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-energy-end)]"
+            >
+              Data Protection
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
