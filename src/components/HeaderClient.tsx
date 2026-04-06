@@ -195,7 +195,7 @@ export function HeaderClient() {
           {/* Close button */}
           <div className="flex items-center justify-between px-6 h-18">
             <Image
-              src="/logo-light.png"
+              src="/logo-dark.png"
               alt="Riviera Energy"
               width={120}
               height={50}

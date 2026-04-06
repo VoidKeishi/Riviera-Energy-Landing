@@ -252,7 +252,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-8 md:gap-4">
+          <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 md:gap-4">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}

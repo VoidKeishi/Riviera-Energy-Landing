@@ -303,11 +303,11 @@ export default function ProjectsPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 grid grid-cols-3 gap-8">
+          <div className="mt-16 grid grid-cols-3 gap-4 sm:gap-8">
             {stats.map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 100}>
                 <div className="text-center">
-                  <div className="font-display text-4xl md:text-5xl font-extrabold energy-gradient-text-on-dark">
+                  <div className="font-display text-2xl sm:text-3xl md:text-5xl font-extrabold energy-gradient-text-on-dark">
                     {stat.value}
                   </div>
                   <div className="mt-2 text-sm font-sans font-medium text-[var(--color-text-on-dark-muted)] uppercase tracking-wide">

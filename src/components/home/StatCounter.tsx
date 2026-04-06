@@ -61,7 +61,7 @@ export function StatCounter({ end, suffix = '', prefix = '', label, dark = false
 
   return (
     <div ref={ref} className="text-center">
-      <div className={`font-display text-5xl md:text-6xl font-extrabold leading-none ${dark ? 'energy-gradient-text-on-dark' : 'energy-gradient-text'}`}>
+      <div className={`font-display text-3xl sm:text-4xl md:text-6xl font-extrabold leading-none ${dark ? 'energy-gradient-text-on-dark' : 'energy-gradient-text'}`}>
         {prefix}{displayCount}{suffix}
       </div>
       <div className={`mt-2 text-sm font-sans font-medium uppercase tracking-wide ${dark ? 'text-[var(--color-text-on-dark-muted)]' : 'text-[var(--color-text-muted)]'}`}>
