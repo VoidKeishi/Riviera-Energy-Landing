@@ -80,28 +80,30 @@ const stats = [
   { end: 100, suffix: '+', label: 'Projects Executed' },
 ] as const;
 
-const partners = [
-  { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845, tall: true },
-  { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951, tall: true },
-  { name: 'BW Offshore', src: '/images/partner-logo/bwoffshore.png', width: 2000, height: 506 },
-  { name: 'MODEC', src: '/images/partner-logo/modec.png', width: 640, height: 154 },
-  { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000, tall: true },
-  { name: 'Nabors', src: '/images/partner-logo/nabors.png', width: 1528, height: 291 },
-  { name: 'Cyan Renewables', src: '/images/partner-logo/cyanrenewables.png', width: 2000, height: 2000, tall: true },
-  { name: 'Twinza', src: '/images/partner-logo/twinza.png', width: 500, height: 104 },
-  { name: 'SOFEC', src: '/images/partner-logo/sofec.png', width: 400, height: 104 },
-  { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280, tall: true },
-  { name: 'UTEC Geo-services', src: '/images/partner-logo/utecgeoservices.png', width: 300, height: 90 },
-  { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627, renderH: 58 },
-  { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315, tall: true },
-  { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800, renderH: 58 },
-  { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336, tall: true },
-  { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700, tall: true },
-  { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386, renderH: 58 },
-  { name: 'Apogee', src: '/images/partner-logo/apogee.png', width: 1500, height: 366, darkBg: true },
-  { name: 'Yinson', src: '/images/partner-logo/yinson.png', width: 296, height: 181, tall: true },
-  { name: 'Altrad', src: '/images/partner-logo/altrad.png', width: 2048, height: 2048, tall: true },
-] as const;
+/* renderH = target rendered height; width auto-computed from aspect ratio.
+   Tuned so each logo lands around 100–130 px rendered width. */
+const partners: { name: string; src: string; width: number; height: number; renderH: number; darkBg?: true }[] = [
+  { name: 'ExxonMobil', src: '/images/partner-logo/exxonmobil.png', width: 2200, height: 845, renderH: 44 },
+  { name: 'Shell', src: '/images/partner-logo/shell.png', width: 1024, height: 951, renderH: 48 },
+  { name: 'BW Offshore', src: '/images/partner-logo/bwoffshore.png', width: 2000, height: 506, renderH: 34 },
+  { name: 'MODEC', src: '/images/partner-logo/modec.png', width: 640, height: 154, renderH: 28 },
+  { name: 'IKM', src: '/images/partner-logo/ikm.png', width: 2000, height: 2000, renderH: 48 },
+  { name: 'Nabors', src: '/images/partner-logo/nabors.png', width: 1528, height: 291, renderH: 24 },
+  { name: 'Cyan Renewables', src: '/images/partner-logo/cyanrenewables.png', width: 1500, height: 673, renderH: 48 },
+  { name: 'Twinza', src: '/images/partner-logo/twinza.png', width: 500, height: 104, renderH: 24 },
+  { name: 'SOFEC', src: '/images/partner-logo/sofec.png', width: 400, height: 104, renderH: 28 },
+  { name: 'Yinson Production', src: '/images/partner-logo/yinsonproduction.png', width: 700, height: 280, renderH: 44 },
+  { name: 'UTEC Geo-services', src: '/images/partner-logo/utecgeoservices.png', width: 300, height: 90, renderH: 32 },
+  { name: 'TechnipFMC', src: '/images/partner-logo/technipfmc.png', width: 1200, height: 627, renderH: 80 },
+  { name: 'Red Rock Oilfield Services', src: '/images/partner-logo/redrockoilfieldservices.png', width: 500, height: 315, renderH: 64 },
+  { name: 'OMS Group', src: '/images/partner-logo/omsgroup.png', width: 1200, height: 800, renderH: 72 },
+  { name: 'AOS Offshore', src: '/images/partner-logo/aosoffshore.png', width: 800, height: 336, renderH: 40 },
+  { name: 'Zamil Offshore', src: '/images/partner-logo/zamiloffshore.png', width: 1200, height: 700, renderH: 64 },
+  { name: 'Altrad', src: '/images/partner-logo/altrad.png', width: 2048, height: 2048, renderH: 56 },
+  { name: 'Dana Petroleum', src: '/images/partner-logo/danapetroleum.png', width: 623, height: 386, renderH: 80 },
+  { name: 'Apogee', src: '/images/partner-logo/apogee.png', width: 1500, height: 366, renderH: 34, darkBg: true },
+  { name: 'Yinson', src: '/images/partner-logo/yinson.png', width: 296, height: 181, renderH: 52 },
+];
 
 const partnersDoubled = [...partners, ...partners];
 
@@ -276,25 +278,22 @@ export default function Home() {
         <ScrollReveal delay={200}>
           <div className="mt-16 relative overflow-hidden">
             <div className="flex w-max animate-scroll-x gap-8">
-              {partnersDoubled.map((partner, i) => {
-                const h = 'renderH' in partner && partner.renderH ? partner.renderH : 'tall' in partner && partner.tall ? 48 : 32;
-                return (
-                  <div
-                    key={`${partner.name}-${i}`}
-                    className="flex-shrink-0 flex items-center justify-center min-w-[80px] px-4"
-                    style={{ height: 48 }}
-                  >
-                    <Image
-                      src={partner.src}
-                      alt={partner.name}
-                      width={Math.round((partner.width / partner.height) * h)}
-                      height={h}
-                      className={`w-auto object-contain ${'darkBg' in partner && partner.darkBg ? 'bg-gray-800 rounded-md px-3 py-1.5' : ''}`}
-                      style={{ height: h }}
-                    />
-                  </div>
-                );
-              })}
+              {partnersDoubled.map((partner, i) => (
+                <div
+                  key={`${partner.name}-${i}`}
+                  className="flex-shrink-0 flex items-center justify-center min-w-[80px] px-4"
+                  style={{ height: 80 }}
+                >
+                  <Image
+                    src={partner.src}
+                    alt={partner.name}
+                    width={Math.round((partner.width / partner.height) * partner.renderH)}
+                    height={partner.renderH}
+                    className={`w-auto object-contain ${partner.darkBg ? 'bg-gray-800 rounded-md px-3 py-1.5' : ''}`}
+                    style={{ height: partner.renderH }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </ScrollReveal>
