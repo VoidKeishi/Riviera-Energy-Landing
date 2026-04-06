@@ -281,13 +281,13 @@ export default function ProjectsPage() {
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/offshore-platform-night.jpg"
-            alt="Offshore platform illuminated at night"
+            src="/images/track record.jpg"
+            alt="Aerial view of container ship at sea"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-40"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/85 via-[var(--color-indigo)]/70 to-[var(--color-indigo)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/80 via-[var(--color-indigo)]/65 to-[var(--color-indigo)]/85" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
