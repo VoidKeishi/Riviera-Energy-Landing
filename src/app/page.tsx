@@ -225,12 +225,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
             <ScrollReveal>
-              <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-energy-end)]">
-                Why Us
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={100}>
-              <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
                 What Sets Us Apart
               </h2>
             </ScrollReveal>
