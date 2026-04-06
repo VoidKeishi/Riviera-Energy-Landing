@@ -220,7 +220,7 @@ export default function Home() {
             className="object-cover opacity-50"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/60 via-[var(--color-indigo)]/45 to-[var(--color-indigo)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/70 via-[var(--color-indigo)]/55 to-[var(--color-indigo)]/80" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center max-w-3xl mx-auto">
