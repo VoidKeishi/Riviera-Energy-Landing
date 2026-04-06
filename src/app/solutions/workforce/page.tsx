@@ -62,11 +62,12 @@ export default function WorkforcePage() {
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/vessel-aerial.jpg"
-            alt="Aerial view of offshore vessel"
+            src="/images/workforce.jpg"
+            alt="Professionals collaborating with global data visualisations"
             fill
             priority
             className="object-cover opacity-40"
+            style={{ objectPosition: 'center 40%' }}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/80 via-[var(--color-indigo)]/60 to-[var(--color-indigo)]" />

@@ -27,23 +27,23 @@ const solutions = [
   {
     title: 'Commissioning & Operational Readiness',
     href: '/solutions/commissioning',
-    image: '/images/offshore-platform-night.jpg',
-    imageAlt: 'Offshore platform illuminated at night',
-    imagePosition: 'center center',
+    image: '/images/commissioning.jpg',
+    imageAlt: 'Engineers inspecting industrial piping at a refinery',
+    imagePosition: 'center 65%',
   },
   {
     title: 'Strategic Project Consultancy',
     href: '/solutions/consultancy',
-    image: '/images/refinery-complex.jpg',
-    imageAlt: 'Industrial refinery complex in daylight',
-    imagePosition: 'center 100%',
+    image: '/images/consultancy.jpg',
+    imageAlt: 'Business professionals analysing charts and data',
+    imagePosition: 'center center',
   },
   {
     title: 'Global Workforce & Mobility',
     href: '/solutions/workforce',
-    image: '/images/vessel-aerial.jpg',
-    imageAlt: 'Aerial view of offshore vessel with helipad',
-    imagePosition: 'center center',
+    image: '/images/workforce.jpg',
+    imageAlt: 'Professionals collaborating with global data visualisations',
+    imagePosition: 'center 40%',
   },
 ];
 

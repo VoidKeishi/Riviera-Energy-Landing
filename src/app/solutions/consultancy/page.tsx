@@ -27,11 +27,12 @@ export default function ConsultancyPage() {
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/refinery-complex.jpg"
-            alt="Industrial refinery complex"
+            src="/images/consultancy.jpg"
+            alt="Business professionals analysing charts and data"
             fill
             priority
             className="object-cover opacity-40"
+            style={{ objectPosition: 'center center' }}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/80 via-[var(--color-indigo)]/60 to-[var(--color-indigo)]" />

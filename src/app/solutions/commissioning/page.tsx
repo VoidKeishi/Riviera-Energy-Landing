@@ -27,11 +27,12 @@ export default function CommissioningPage() {
         <GradientMesh variant="dark" />
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/offshore-platform-night.jpg"
-            alt="Offshore platform illuminated at night"
+            src="/images/commissioning.jpg"
+            alt="Engineers inspecting industrial piping at a refinery"
             fill
             priority
             className="object-cover opacity-40"
+            style={{ objectPosition: 'center 65%' }}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-indigo)]/80 via-[var(--color-indigo)]/60 to-[var(--color-indigo)]" />
