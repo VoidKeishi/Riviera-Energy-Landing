@@ -42,26 +42,6 @@ const projects = [
     highlights: ["FPSO Abigail-Joseph", "commissioning management planning", "operational readiness and continuity"],
   },
   {
-    title: "BP America / Atlantis Topsides Commissioning",
-    location: "South Korea",
-    sector: "Oil & Gas",
-    coordinates: [35.1796, 129.0756],
-    services: ["Commissioning Services", "Electrical Systems", "Oil & Gas Processing"],
-    description:
-      "Provision of commissioning services to support production, compression, and power generation modules for the Atlantis Topsides project. Riviera Energy deployed specialist personnel across electrical and oil & gas processing systems, supporting commissioning execution and ensuring system readiness for offshore operations.",
-    highlights: ["Atlantis Topsides", "production, compression, and power generation modules", "system readiness for offshore operations"],
-  },
-  {
-    title: "ExxonMobil / Kizomba A/B Integrated Commissioning",
-    location: "Angola / South Korea",
-    sector: "Oil & Gas",
-    coordinates: [-8.8383, 13.2344],
-    services: ["Integrated Commissioning", "Start-Up Support", "Subsea & FPSO Systems"],
-    description:
-      "Provision of integrated commissioning and start-up support for the Kizomba A/B development, involving surface wellhead platforms and subsea wells tied back to an FPSO. Riviera Energy supported execution across offshore systems, contributing to coordinated start-up activities and ensuring operational readiness across interconnected assets.",
-    highlights: ["Kizomba A/B", "surface wellhead platforms and subsea wells", "operational readiness across interconnected assets"],
-  },
-  {
     title: "Lloyds Ship Loader Commissioning & Ex Inspection",
     location: "South Korea / Australia",
     sector: "Oil & Gas",
@@ -70,16 +50,6 @@ const projects = [
     description:
       "Provision of commissioning and Ex inspection services for a PLC/SCADA-controlled ship loader system. Riviera Energy supported commissioning activities at Mokpo, South Korea, followed by Ex inspection and certification works in Western Port, Australia, ensuring compliance with hazardous area standards and readiness for operational deployment.",
     highlights: ["PLC/SCADA-controlled ship loader", "Ex inspection and certification", "hazardous area standards"],
-  },
-  {
-    title: "First Quantum / Cobre Power Station Commissioning",
-    location: "Panama",
-    sector: "Oil & Gas",
-    coordinates: [9.0, -79.5],
-    services: ["Commissioning Services", "Preservation", "Mooring System Study"],
-    description:
-      "Provision of commissioning services alongside preservation and spread mooring system study for the Cobre Power Station project. Riviera Energy supported commissioning execution while contributing to mooring system evaluation, ensuring asset integrity, preservation effectiveness, and readiness for operational deployment.",
-    highlights: ["Cobre Power Station", "spread mooring system study", "asset integrity, preservation effectiveness"],
   },
   {
     title: "Sembcorp / ME&I Commissioning Support",
