@@ -2,7 +2,7 @@
 
 /* ============================================
    Riviera Energy — CSS Custom Properties
-   Source: STYLE_GUIDE.md
+   Source: DESIGN_GUIDELINE.md
    ============================================ */
 
 :root {
@@ -35,7 +35,7 @@
   --color-text-on-dark: #FFFFFF;
   --color-text-on-dark-muted: #DCE3E8;
 
-  /* --- Motion (from STYLE_GUIDE.md) --- */
+  /* --- Motion (from DESIGN_GUIDELINE.md) --- */
   --ease-flow: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-wave: cubic-bezier(0.37, 0, 0.63, 1);
   --ease-lift: cubic-bezier(0.33, 1, 0.68, 1);
@@ -55,8 +55,6 @@
   /* --- Font families (from next/font CSS variables) --- */
   --font-display: var(--font-merriweather);
   --font-sans: var(--font-manrope);
-  --font-mono: var(--font-jetbrains);
-  --font-hero: var(--font-playfair);
   /* --- Brand colors mapped to Tailwind --- */
   --color-indigo: var(--color-indigo);
   --color-navy: var(--color-navy);

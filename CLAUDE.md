@@ -10,7 +10,7 @@ Corporate landing page for **Riviera Energy Pte Ltd** — an energy industry con
 
 - **Next.js 16** with App Router, React 19, TypeScript (strict mode)
 - **Tailwind CSS v4** via `@tailwindcss/postcss` — uses `@theme inline` and `@layer base` (NOT the v3 `tailwind.config.js` pattern)
-- **Fonts**: Outfit (display/headings), Plus Jakarta Sans (body/UI), JetBrains Mono (data) — loaded via `next/font/google` with CSS variables
+- **Fonts**: Merriweather (display/headings), Manrope (body/UI) — loaded via `next/font/google` with CSS variables
 - **Path alias**: `@/*` maps to `./src/*`
 - **No backend** — static site, contact form currently uses a setTimeout mock
 
@@ -93,8 +93,7 @@ All motion follows "ocean current" principle — slow, fluid, no bouncing. Key p
 
 Detailed content, design direction, and style specs are in separate files — **read these before making content or design changes**:
 - `CONTENT.md` — Full page-by-page copy, section structure, and source mapping
-- `VIBE.md` — "Engineered Flow" design concept, visual language, motion philosophy
-- `STYLE_GUIDE.md` — Complete CSS variable definitions, type scale, component specs, spacing tokens, responsive strategy, accessibility requirements
+- `DESIGN_GUIDELINE.md` — Visual system guide: colors, fonts, motion, components, layout (matches actual implementation)
 
 ## Site Structure
 
@@ -117,7 +116,7 @@ Detailed content, design direction, and style specs are in separate files — **
 
 ## Brand Quick Reference
 
-- **Colors**: Deep Indigo `#080145` (hero/footer bg), Navy `#11008E` (headings), Energy Gradient `#0958B3→#59DAE3` (CTAs/accents), Cyan `#0098B5` (interactive), Amber `#E8A317` (sparingly)
+- **Colors**: Indigo `#052698` (hero/footer bg), Energy Gradient `#116BF8→#1994E1→#21BCEE` (CTAs/accents), Cyan `#21BCEE` (interactive), Amber `#E8A317` (sparingly)
 - **Tagline**: "Where Partnership Meets Performance"
 - **Tone**: Direct, measured, expert. Short sentences. Claims backed by specifics.
 - **Visual motifs**: Animated wave SVGs, dot grid clusters, dark/light section rhythm
@@ -129,7 +128,6 @@ Source materials in `Resource/`:
 - `Riviera Energy Company Profile.pdf` — 10-page company deck
 - `Email.md` — Client scope/requirements
 - `OGS-Global.md` / `JadeClover.md` — Predecessor site content
-- `CONTEXT.md` — High-level project brief
 
 ## Implementation Notes
 

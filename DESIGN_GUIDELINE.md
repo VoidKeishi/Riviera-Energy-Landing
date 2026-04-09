@@ -6,16 +6,14 @@ A human-friendly guide to the visual system used across the Riviera Energy websi
 
 ## Fonts
 
-Four typefaces, each with a specific role:
+Two typefaces, each with a specific role:
 
 | Font | Tailwind class | Where it's used |
 |---|---|---|
-| **Playfair Display** (700, 900) | `font-hero` | Homepage hero H1 only — the large "Where Partnership Meets Performance" tagline |
-| **Merriweather** (400, 700, 900) | `font-display` | All other headings (H1–H6), section titles, stat numbers, solution card titles |
+| **Merriweather** (400, 700, 900) | `font-display` | All headings (H1–H6), section titles, stat numbers, solution card titles, hero tagline |
 | **Manrope** (400–700) | `font-sans` | Body text, navigation, buttons, labels, descriptions — the default site font |
-| **JetBrains Mono** (400, 500) | `font-mono` | Data-oriented text (stat counters, technical labels) |
 
-Fonts are loaded via `next/font/google` in `layout.tsx` and injected as CSS variables (`--font-playfair`, `--font-merriweather`, `--font-manrope`, `--font-jetbrains`). The `@theme inline` block in `globals.css` maps them to Tailwind utilities.
+Fonts are loaded via `next/font/google` in `layout.tsx` and injected as CSS variables (`--font-merriweather`, `--font-manrope`). The `@theme inline` block in `globals.css` maps them to Tailwind utilities.
 
 ---
 
