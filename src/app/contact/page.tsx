@@ -66,7 +66,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="tel:+6589239798"
-                  className="mt-4 inline-block text-base md:text-lg font-sans font-medium text-[var(--color-text-body)] hover:text-[var(--color-cyan)] transition-colors"
+                  className="mt-4 block text-base md:text-lg font-sans font-medium text-[var(--color-text-body)] hover:text-[var(--color-cyan)] transition-colors"
                 >
                   (+65) 8923 9798
                 </a>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/company/rivieraenergy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-base md:text-lg font-sans font-medium text-[var(--color-text-body)] hover:text-[var(--color-cyan)] transition-colors"
+                  className="mt-4 flex w-fit items-center gap-2 text-base md:text-lg font-sans font-medium text-[var(--color-text-body)] hover:text-[var(--color-cyan)] transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

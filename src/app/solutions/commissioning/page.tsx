@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { GradientMesh } from '@/components/ui/GradientMesh';
+import { ExecutionFrameworkTimeline } from '@/components/commissioning/ExecutionFrameworkTimeline';
 
 const approachPillars = [
   {
@@ -212,44 +213,28 @@ export default function CommissioningPage() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
-          {assessmentSteps.map((step, i) => (
-            <ScrollReveal key={step.number} delay={i * 80}>
-              <div className="flex gap-5">
-                <span className="flex-shrink-0 font-display text-4xl md:text-5xl font-extrabold energy-gradient-text leading-none">
-                  {step.number}
-                </span>
-                <div className="pt-1">
-                  <h3 className="font-sans text-base font-bold text-[var(--color-text-primary)] leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
-                    {step.detail}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <ScrollReveal delay={200}>
+            <ExecutionFrameworkTimeline steps={assessmentSteps} />
+          </ScrollReveal>
         </div>
 
-        <div className="mt-16 max-w-4xl mx-auto">
+        <div className="mt-20 max-w-4xl mx-auto text-center">
           <ScrollReveal delay={200}>
-            <div className="rounded-xl border border-[var(--color-grey-100)] bg-[var(--color-off-white)] p-8 md:p-10">
-              <h3 className="font-display text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
-                Why This Matters
-              </h3>
-              <p className="mt-2 text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
-                Without a structured assessment phase, commissioning risk increases significantly. Our approach ensures:
-              </p>
-              <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
-                {whyItMatters.map((point) => (
-                  <li key={point} className="flex items-start gap-2 text-sm font-sans text-[var(--color-text-body)]">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-energy-start)] flex-shrink-0" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
+              Why This Matters
+            </p>
+            <p className="mt-4 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)] max-w-2xl mx-auto">
+              Without a structured assessment phase, commissioning risk increases significantly. Our approach ensures:
+            </p>
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 text-left max-w-3xl mx-auto">
+              {whyItMatters.map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-sm font-sans text-[var(--color-text-body)]">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-energy-start)] flex-shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </ScrollReveal>
         </div>
       </SectionWrapper>
