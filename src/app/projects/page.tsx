@@ -149,7 +149,7 @@ const industries = [
 
 const stats = [
   { value: "100+", label: "Projects Executed" },
-  { value: "300", label: "kbpd Maximum Assessment Capacity" },
+  { value: "300+", label: "Global Workforce Deployed" },
   { value: "50+", label: "Years Combined Leadership" },
 ] as const;
 
