@@ -367,10 +367,12 @@ export default function CommissioningPage() {
       {/* Section 6 — Closing CTA */}
       <section className="relative py-12 sm:py-16 md:py-20 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <ScrollReveal>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-              Planning your next commissioning or restart phase?
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-snug text-white">
+              Planning your next commissioning
+              <br />
+              or restart phase?
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={100}>

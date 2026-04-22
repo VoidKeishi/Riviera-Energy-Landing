@@ -205,7 +205,8 @@ export default function ConsultancyPage() {
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                Built for delivery — not just advisory.
+                Built for delivery — <br className="hidden sm:block" />
+                not just advisory.
               </h2>
             </ScrollReveal>
           </div>
