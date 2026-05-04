@@ -61,6 +61,66 @@ const projects = [
       "Provision of mechanical, electrical, and instrumentation (ME&I) commissioning expertise to support project execution in Singapore. Riviera Energy deployed specialist personnel across commissioning and operational support functions, ensuring system readiness and smooth transition into operational phases.",
     highlights: ["ME&I commissioning expertise", "specialist personnel", "smooth transition into operational phases"],
   },
+  {
+    title: "French Operator / Yulin Wind Farm",
+    location: "Paris / Taipei",
+    sector: "Renewable Energy",
+    coordinates: [23.7099, 120.4555],
+    services: ["Strategic Consultancy", "Procurement Strategy", "Lifting Operations"],
+    description:
+      "Riviera was engaged to provide strategic consultancy on a procurement strategy aimed at reducing operational downtime. Leveraging technical expertise in lifting, the team developed and implemented a targeted approach that enabled seamless execution. The project was successfully delivered within four weeks, achieving zero downtime.",
+    highlights: ["strategic consultancy", "reducing operational downtime", "zero downtime"],
+  },
+  {
+    title: "NABORS Drilling / Halliburton Rig Training Facility",
+    location: "Singapore",
+    sector: "Oil & Gas",
+    coordinates: [1.3000, 103.7400],
+    services: ["Rig Manager", "Electrical & Mechanical Engineers", "Training Personnel"],
+    description:
+      "Provision of rig specialists across key roles, including Rig Manager and Electrical & Mechanical Engineers, to support the Halliburton Rig Training Facility in Singapore. The facility delivers hands-on rig experience for onboarding and training new personnel, requiring operational realism and technical accuracy. Riviera ensured consistent delivery through experienced personnel aligned to training and operational requirements.",
+    highlights: ["rig specialists", "Halliburton Rig Training Facility", "operational realism and technical accuracy"],
+  },
+  {
+    title: "UTEC / Offshore Survey — SHWE Phase 2",
+    location: "South East Asia",
+    sector: "Oil & Gas",
+    coordinates: [16.8409, 96.1735],
+    services: ["Survey Personnel", "Pre-Lay Surveys", "LBL Metrology"],
+    description:
+      "Deployment of survey personnel, including Party Chief, Data Processor, Surveyor, and Survey Engineer, to support offshore EPCIC activities for the SHWE Phase 2 Development. Scope included structure installation support, pre-lay surveys for pipelines and umbilicals, LBL metrology, and pre-commissioning activities — ensuring accuracy, continuity, and execution across critical offshore operations.",
+    highlights: ["SHWE Phase 2 Development", "pre-lay surveys", "LBL metrology"],
+  },
+  {
+    title: "Dana Petroleum / Western Isles Development FPSO",
+    location: "China",
+    sector: "Oil & Gas",
+    coordinates: [29.9847, 122.2069],
+    services: ["Field Engineering", "Commissioning Support", "Operations Consultancy"],
+    description:
+      "Provision of site field engineering, commissioning & operations consultancy services on the Western Isles Development for the Sevan floating production, storage and offloading vessel (FPSO) Refurbishment. The cylindrical FPSO is 90m-wide, weighs 28,000t and has a production capacity of 44,000 barrels of oil a day, with an additional tank storage capacity of 400,000 barrels.",
+    highlights: ["Western Isles Development", "Sevan FPSO Refurbishment", "44,000 barrels of oil a day"],
+  },
+  {
+    title: "Twinza / Pasca FEED",
+    location: "Perth, Australia",
+    sector: "Oil & Gas",
+    coordinates: [-31.9505, 115.8605],
+    services: ["Commissioning Engineering", "Technical Advisory", "Mobilisation Support"],
+    description:
+      "Provision of commissioning engineering support, including mobilisation, technical advisory, and engineering services for the Pasca FEED project. Riviera supported early-phase planning and execution readiness, contributing to structured project development and alignment across stakeholders.",
+    highlights: ["Pasca FEED project", "early-phase planning", "execution readiness"],
+  },
+  {
+    title: "IKM / Subsea ROV Operations",
+    location: "South East Asia",
+    sector: "Oil & Gas",
+    coordinates: [3.1390, 110.0000],
+    services: ["ROV Pilots", "Subsea Operations", "Offshore Support"],
+    description:
+      "Deployment of ROV pilots to support offshore operations, ensuring safe and efficient execution across subsea work scopes. Riviera provided experienced personnel aligned to project requirements, maintaining operational continuity in demanding offshore environments.",
+    highlights: ["ROV pilots", "subsea work scopes", "operational continuity"],
+  },
 ] as const;
 
 /* Professional industry icons — clean line style, 24x24 viewBox */

@@ -1,10 +1,11 @@
-import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { GradientMesh } from '@/components/ui/GradientMesh';
+import { ApproachStagesReveal } from '@/components/consultancy/ApproachStagesReveal';
+import { DifferentiatorsReveal } from '@/components/consultancy/DifferentiatorsReveal';
 
 const approachStages = [
   {
@@ -154,42 +155,10 @@ export default function ConsultancyPage() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 flex flex-col md:flex-row items-stretch gap-4 md:gap-2 max-w-6xl mx-auto">
-          {approachStages.map((stage, i) => (
-            <Fragment key={stage.title}>
-              <ScrollReveal delay={i * 100} className="flex-1">
-                <div className="h-full flex flex-col items-center text-center px-4 md:px-3">
-                  <span className="font-display text-3xl md:text-4xl font-extrabold energy-gradient-text leading-none">
-                    {stage.number}
-                  </span>
-                  <h3 className="mt-4 font-sans text-base md:text-lg font-bold text-[var(--color-text-primary)]">
-                    {stage.title}
-                  </h3>
-                  <p className="mt-3 text-sm font-sans leading-relaxed text-[var(--color-text-muted)]">
-                    {stage.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-              {i < approachStages.length - 1 && (
-                <div
-                  className="flex items-center justify-center flex-shrink-0 text-[var(--color-energy-end)]"
-                  aria-hidden="true"
-                >
-                  <svg
-                    className="w-6 h-6 rotate-90 md:rotate-0"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </div>
-              )}
-            </Fragment>
-          ))}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <ScrollReveal>
+            <ApproachStagesReveal stages={approachStages} />
+          </ScrollReveal>
         </div>
       </SectionWrapper>
 
@@ -211,20 +180,10 @@ export default function ConsultancyPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
-            {differentiators.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 80}>
-                <div>
-                  <div className="w-6 h-0.5 bg-[var(--color-energy-end)] rounded-full mb-4" />
-                  <h3 className="font-sans text-base font-bold text-white leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
-                    {item.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+          <div className="mt-14">
+            <ScrollReveal>
+              <DifferentiatorsReveal items={differentiators} />
+            </ScrollReveal>
           </div>
         </div>
       </section>

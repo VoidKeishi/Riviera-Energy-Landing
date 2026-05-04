@@ -542,6 +542,17 @@
 }
 
 /* ============================================
+   Hover-Reveal Fallback for Touch Devices
+   ============================================ */
+
+@media (hover: none) {
+  [data-reveal-on-hover] [data-reveal-target] {
+    grid-template-rows: 1fr !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ============================================
    Reduced Motion
    ============================================ */
 

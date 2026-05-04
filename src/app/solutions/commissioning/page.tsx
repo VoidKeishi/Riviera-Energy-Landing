@@ -4,69 +4,65 @@ import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { GradientMesh } from '@/components/ui/GradientMesh';
-import { ExecutionFrameworkTimeline } from '@/components/commissioning/ExecutionFrameworkTimeline';
+import { FlipCard } from '@/components/commissioning/FlipCard';
+import { RivieraAdvantageReveal } from '@/components/commissioning/RivieraAdvantageReveal';
 
 const approachPillars = [
   {
     title: 'Planning',
+    image: {
+      src: '/images/commissioning/approach-planning.jpg',
+      alt: 'Engineers reviewing project plans and equipment models on blueprints',
+    },
     description:
       'Our structured approach to system and asset planning streamlines the commissioning process. By testing each component in the correct sequence and managing system interdependencies, we reduce delays and support the smooth achievement of commissioning and handover milestones.',
   },
   {
     title: 'Technology',
+    image: {
+      src: '/images/commissioning/approach-technology.jpg',
+      alt: 'Digital commissioning interface with real-time data dashboards',
+    },
     description:
       'We use advanced digital commissioning and completion tools to streamline testing and handover — tracking progress in real time, capturing accurate data, and producing clear, comprehensive reports that support collaboration and enable a smooth transition from testing through to final handover.',
   },
   {
     title: 'Performance & Integrated Testing',
+    image: {
+      src: '/images/commissioning/approach-performance.jpg',
+      alt: 'Engineers performing integrated systems testing on industrial equipment',
+    },
     description:
       'We develop and deliver robust performance and integrated testing programs to confirm that all systems operate correctly, both individually and as a fully integrated whole — ensuring the complete installation meets performance requirements and is ready for reliable operation from day one.',
   },
 ] as const;
 
-const assessmentSteps = [
+const rivieraAdvantage = [
   {
-    number: '01',
-    title: 'Field Condition Assessment',
-    detail:
-      'Multidisciplinary inspection of process units, utilities, rotating equipment, tank farms, logistics infrastructure, and power distribution.',
+    title: 'Faster Transition',
+    detail: 'From construction to stable operations — without unnecessary delays.',
   },
   {
-    number: '02',
-    title: 'Documentation & Technical Verification',
-    detail:
-      'Review and reconciliation of PFDs, P&IDs, equipment lists, corrosion circuits, and historical inspection data records.',
+    title: 'Reduced Risk',
+    detail: 'Minimising rework, technical uncertainty, and downstream disruption.',
   },
   {
-    number: '03',
-    title: 'Preservation & Metallurgy Review',
-    detail:
-      'Identification of degradation risks, corrosion exposure, metallurgy issues, and catalyst-related restart blockers.',
+    title: 'Stronger Alignment',
+    detail: 'Clear coordination across stakeholders, disciplines, and execution teams.',
   },
   {
-    number: '04',
-    title: 'Regulatory & Environmental Gaps',
-    detail:
-      'Analysis of emissions compliance, sulfur limits, product specs, flare compliance, and global fuel quality standards.',
+    title: 'Reliable Performance',
+    detail: 'Assets delivered ready — operating as intended from day one.',
   },
-  {
-    number: '05',
-    title: 'Restart Feasibility & Cost Model',
-    detail:
-      'Structured decision framework determining technical/economic viability, risk-ranked constraints, and CAPEX/OPEX drivers.',
-  },
-] as const;
-
-const whyItMatters = [
-  'Early identification of technical and operational gaps',
-  'Reduced rework and downstream delays',
-  'Clear visibility on cost, risk, and execution strategy',
-  'Stronger alignment across stakeholders before mobilisation',
 ] as const;
 
 const lifecyclePhases = [
   {
     name: 'Pre-Commissioning',
+    image: {
+      src: '/images/commissioning/lifecycle-pre-commissioning.jpg',
+      alt: 'Engineer monitoring industrial control room dashboards before system start-up',
+    },
     tagline: 'Where readiness is built.',
     description:
       'Establishing system integrity and ensuring all components are installed, verified, and prepared for safe introduction into service.',
@@ -74,6 +70,10 @@ const lifecyclePhases = [
   },
   {
     name: 'Commissioning',
+    image: {
+      src: '/images/commissioning/lifecycle-commissioning.jpg',
+      alt: 'Industrial commissioning activity at an energised facility',
+    },
     tagline: 'Where performance is proven.',
     description:
       'Energising and testing systems to validate functionality, performance, and compliance against design intent.',
@@ -81,18 +81,15 @@ const lifecyclePhases = [
   },
   {
     name: 'Operational Readiness',
+    image: {
+      src: '/images/commissioning/lifecycle-operational-readiness.jpg',
+      alt: 'Operations team coordinating handover to stable production',
+    },
     tagline: 'Where operations take ownership.',
     description:
       'Preparing people, processes, and systems to ensure a smooth transition into stable, sustainable operations.',
     focus: 'People · Process · Sustainability',
   },
-] as const;
-
-const valueProps = [
-  { title: 'Faster Transition', detail: 'From construction to operations' },
-  { title: 'Reduced Risk', detail: 'Minimising rework & delays' },
-  { title: 'Stronger Alignment', detail: 'Across stakeholders and delivery teams' },
-  { title: 'Reliable Performance', detail: 'From day one of operations' },
 ] as const;
 
 export const metadata: Metadata = {
@@ -161,9 +158,9 @@ export default function CommissioningPage() {
         </div>
       </section>
 
-      {/* Section 1 — Approach */}
+      {/* Section 1 — Approach (flip cards) */}
       <SectionWrapper background="off-white">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
               Engineered for Operational Confidence
@@ -176,70 +173,48 @@ export default function CommissioningPage() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 max-w-6xl mx-auto">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {approachPillars.map((pillar, i) => (
             <ScrollReveal key={pillar.title} delay={i * 100}>
-              <div>
-                <div className="w-8 h-0.5 rounded-full bg-gradient-to-r from-[var(--color-energy-start)] to-[var(--color-energy-end)] mb-4" />
-                <h3 className="font-sans text-base font-bold text-[var(--color-text-primary)] leading-snug">
-                  {pillar.title}
-                </h3>
-                <p className="mt-2 text-sm font-sans leading-relaxed text-[var(--color-text-body)]">
-                  {pillar.description}
-                </p>
-              </div>
+              <FlipCard
+                variant="light"
+                image={pillar.image}
+                title={pillar.title}
+                body={pillar.description}
+              />
             </ScrollReveal>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* Section 2 — 5-Step Execution Framework */}
+      {/* Section 2 — The Riviera Advantage (replaces the 5-Step Execution Framework) */}
       <SectionWrapper background="white">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
           <ScrollReveal>
             <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Initial Assessment Phase
+              The Riviera Advantage
             </p>
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              Our 5-Step Execution Framework
+              Why This Approach Delivers
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="mt-6 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)]">
-              A disciplined, engineering-led approach to de-risk project restart and execution.
+              Without a structured assessment phase, commissioning risk increases significantly. A disciplined, engineering-led approach is what separates a smooth transition from a costly one — bringing structure, experience, and execution clarity from day one.
             </p>
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 max-w-6xl mx-auto">
+        <div className="mt-14 max-w-5xl mx-auto">
           <ScrollReveal delay={200}>
-            <ExecutionFrameworkTimeline steps={assessmentSteps} />
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-20 max-w-4xl mx-auto text-center">
-          <ScrollReveal delay={200}>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              Why This Matters
-            </p>
-            <p className="mt-4 text-base md:text-lg font-sans leading-relaxed text-[var(--color-text-body)] max-w-2xl mx-auto">
-              Without a structured assessment phase, commissioning risk increases significantly. Our approach ensures:
-            </p>
-            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 text-left max-w-3xl mx-auto">
-              {whyItMatters.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm font-sans text-[var(--color-text-body)]">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-energy-start)] flex-shrink-0" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <RivieraAdvantageReveal items={rivieraAdvantage} />
           </ScrollReveal>
         </div>
       </SectionWrapper>
 
-      {/* Section 3 — Lifecycle Segmentation */}
+      {/* Section 3 — Project Lifecycle (flip cards on dark) */}
       <section className="relative py-12 sm:py-16 md:py-20 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -256,29 +231,17 @@ export default function CommissioningPage() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
             {lifecyclePhases.map((phase, i) => (
-              <ScrollReveal key={phase.name} delay={i * 100} className="h-full">
-                <div className="relative h-full rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-8 transition-all duration-[var(--duration-base)] ease-[var(--ease-lift)] hover:-translate-y-1 hover:border-[var(--color-energy-end)]/40 overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-1 energy-gradient" />
-                  <h3 className="font-display text-2xl font-bold text-white leading-tight">
-                    {phase.name}
-                  </h3>
-                  <p className="mt-3 font-sans italic text-[var(--color-energy-end)]">
-                    {phase.tagline}
-                  </p>
-                  <p className="mt-4 text-sm font-sans leading-relaxed text-[var(--color-text-on-dark-muted)]">
-                    {phase.description}
-                  </p>
-                  <div className="mt-6 pt-5 border-t border-white/10">
-                    <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.15em] text-white/60">
-                      Focus
-                    </p>
-                    <p className="mt-2 text-sm font-sans text-white/90">
-                      {phase.focus}
-                    </p>
-                  </div>
-                </div>
+              <ScrollReveal key={phase.name} delay={i * 100}>
+                <FlipCard
+                  variant="dark"
+                  image={phase.image}
+                  title={phase.name}
+                  tagline={phase.tagline}
+                  body={phase.description}
+                  focus={phase.focus}
+                />
               </ScrollReveal>
             ))}
           </div>
@@ -330,41 +293,7 @@ export default function CommissioningPage() {
         </div>
       </SectionWrapper>
 
-      {/* Section 5 — Value Proposition */}
-      <SectionWrapper background="white">
-        <div className="max-w-3xl mx-auto text-center">
-          <ScrollReveal>
-            <p className="text-sm font-sans font-medium uppercase tracking-wide text-[var(--color-cyan)]">
-              The Riviera Advantage
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={100}>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--color-text-primary)]">
-              Why This Approach Delivers
-            </h2>
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {valueProps.map((item, i) => (
-            <ScrollReveal key={item.title} delay={i * 80}>
-              <div className="flex gap-4 h-full">
-                <div className="w-0.5 flex-shrink-0 rounded-full bg-gradient-to-b from-[var(--color-energy-start)] to-[var(--color-energy-end)]" />
-                <div>
-                  <h3 className="font-display text-xl font-bold text-[var(--color-text-primary)] leading-tight">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm font-sans text-[var(--color-text-muted)] leading-relaxed">
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Section 6 — Closing CTA */}
+      {/* Section 5 — Closing CTA */}
       <section className="relative py-12 sm:py-16 md:py-20 bg-[var(--color-indigo)] text-white overflow-hidden">
         <GradientMesh variant="dark" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
